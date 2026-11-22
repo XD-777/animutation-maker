@@ -1,0 +1,3139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animutation Puppet Maker — Macromedia Flash 2003 Edition</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a246a'/%3E%3Crect x='2' y='2' width='28' height='28' fill='%23d4d0c8' stroke='%23ffffff' stroke-width='2'/%3E%3Ccircle cx='11' cy='12' r='2.5' fill='%23000'/%3E%3Ccircle cx='21' cy='12' r='2.5' fill='%23000'/%3E%3Crect x='8' y='18' width='16' height='8' fill='%23ff2f7b' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ==========================================================================
+       1. SISTEMA DE DISEÑO RETRO WINDOWS 98/2000 CLASSIC & MACROMEDIA FLASH 2003
+       ========================================================================== */
+    :root {
+      --win-bg: #d4d0c8;
+      --win-bg-dark: #c0c0c0;
+      --win-shadow: #808080;
+      --win-dark-shadow: #404040;
+      --win-light: #ffffff;
+      --win-navy: #000080;
+      --win-title: #0a246a;
+      --flash-pink: #ff2f7b;
+      --flash-yellow: #ffe14a;
+      --flash-cyan: #00d0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-radius: 0px !important; /* Estética 100% cuadrada Windows Classic */
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100dvh;
+      font-family: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+      font-size: 13px;
+      color: #000000;
+      background-color: #b5b5b5;
+      background-image: linear-gradient(180deg, #dedede 0%, #b5b5b5 42%, #c8c8c8 100%);
+      overflow-x: hidden;
+    }
+
+    *:focus-visible {
+      outline: 2px dotted #000080;
+      outline-offset: 2px;
+    }
+
+    /* Superficie de Panel Biselado Clásico */
+    .mm-panel {
+      background: var(--win-bg);
+      color: #000000;
+      border: 2px solid;
+      border-color: var(--win-light) var(--win-dark-shadow) var(--win-dark-shadow) var(--win-light);
+      box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow);
+    }
+
+    /* Barra de Título Macromedia / Windows 2000 */
+    .mm-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.32rem 0.55rem;
+      background: linear-gradient(90deg, #0a246a 0%, #3a6ea5 55%, #1084d0 78%, #0a246a 100%);
+      color: #ffffff;
+      border: 2px solid;
+      border-color: #ffffff #404040 #404040 #ffffff;
+      user-select: none;
+    }
+
+    .mm-titlebar h1 {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-shadow: 1px 1px 0 #000824;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .mm-titlebar .mm-brand {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: rgba(0, 0, 0, 0.28);
+      padding: 2px 6px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .mm-caption {
+      margin: 0.25rem 0 0 0;
+      font-size: 0.8rem;
+      color: #000000;
+    }
+
+    /* Widget Cafecito Retro */
+    .cafecito-retro-wrap {
+      display: flex;
+      width: fit-content;
+      max-width: 100%;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.35rem;
+      margin: 0.35rem 0 0 auto;
+      padding: 0.4rem 0.55rem;
+      background: #d4d0c8;
+      border: 2px solid;
+      border-color: #fff #404040 #404040 #fff;
+      box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #808080;
+    }
+
+    .cafecito-retro-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #000080;
+    }
+
+    .cafecito-retro-wrap img {
+      display: block;
+      height: 28px;
+      width: auto;
+    }
+
+    @media (max-width: 480px) {
+      .cafecito-retro-wrap {
+        align-items: center;
+        margin-right: auto;
+      }
+    }
+
+    /* Botones Retro Biselados */
+    .mm-btn, .sticker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.32rem;
+      padding: 0.42rem 0.62rem;
+      min-height: 2.1rem;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #000000;
+      background: #d4d0c8;
+      border: 2px solid;
+      border-color: #ffffff #404040 #404040 #ffffff;
+      box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      line-height: 1.15;
+    }
+
+    .mm-btn:hover:not(:disabled) {
+      background: #dcd8d0;
+    }
+
+    .mm-btn:active:not(:disabled),
+    .mm-btn.mm-btn-on {
+      border-color: #404040 #ffffff #ffffff #404040;
+      background: #c0c0c0;
+      box-shadow: inset 1px 1px 0 #808080;
+      padding-top: 0.47rem;
+      padding-bottom: 0.37rem;
+    }
+
+    .mm-btn:disabled {
+      color: #808080;
+      text-shadow: 1px 1px 0 #ffffff;
+      cursor: not-allowed;
+    }
+
+    .mm-btn-primary {
+      background: #0a246a;
+      color: #ffffff;
+      border-color: #7aa2d6 #001040 #001040 #7aa2d6;
+      box-shadow: inset 1px 1px 0 #3a6ea5, inset -1px -1px 0 #000824;
+    }
+
+    .mm-btn-primary:hover:not(:disabled) {
+      background: #10328a;
+    }
+
+    .mm-btn-primary:active:not(:disabled),
+    .mm-btn-primary.mm-btn-on {
+      background: #081c52;
+      border-color: #001040 #7aa2d6 #7aa2d6 #001040;
+      box-shadow: inset 1px 1px 0 #000824;
+    }
+
+    .mm-btn-danger {
+      background: #8b0000;
+      color: #ffffff;
+      border-color: #ff8080 #300000 #300000 #ff8080;
+    }
+
+    /* Layout Principal */
+    .app-shell {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .header-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.45rem 0.55rem;
+    }
+
+    .workspace {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 1024px) {
+      .workspace {
+        flex-direction: row;
+        align-items: stretch;
+        height: calc(100dvh - 6.8rem);
+        min-height: 36rem;
+      }
+      .stage-column {
+        flex: 1 1 auto;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .sidebar-column {
+        width: 21.5rem;
+        flex: 0 0 21.5rem;
+        overflow-y: auto;
+        padding-right: 2px;
+      }
+    }
+
+    /* Escenario Canvas */
+    .mm-stage-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 0.4rem;
+      gap: 0.4rem;
+    }
+
+    .mm-stage {
+      position: relative;
+      width: 100%;
+      height: 52vh;
+      min-height: 18rem;
+      background: #ffffff;
+      border: 2px solid;
+      border-color: #404040 #ffffff #ffffff #404040;
+      box-shadow: inset 2px 2px 0 #808080, inset -1px -1px 0 #ffffff;
+      touch-action: none;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      .mm-stage {
+        height: 100%;
+        flex: 1 1 auto;
+      }
+    }
+
+    .mm-stage.drag-over {
+      outline: 3px dashed #ff2f7b;
+      outline-offset: -5px;
+    }
+
+    #stage-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Overlay de Marcadores Interactivos */
+    #markers-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .marker-handle {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      margin-left: -22px;
+      margin-top: -22px;
+      background: transparent;
+      border: none;
+      padding: 0;
+      pointer-events: auto;
+      cursor: grab;
+      touch-action: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .marker-handle:active {
+      cursor: grabbing;
+    }
+
+    .marker-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50% !important; /* Los nodos de control facial son puntos circulares */
+      border: 2px solid #000000;
+      box-shadow: 0 0 0 1px #ffffff;
+      transition: transform 0.08s ease;
+    }
+
+    .marker-handle:hover .marker-dot,
+    .marker-handle:focus-visible .marker-dot,
+    .marker-handle.dragging .marker-dot {
+      transform: scale(1.28);
+      box-shadow: 0 0 0 2px #ffe14a;
+    }
+
+    .tone-cyan .marker-dot { background: #00d0e0; }
+    .tone-yellow .marker-dot { background: #ffe14a; }
+    .tone-pink .marker-dot { background: #ff2f9a; }
+
+    .marker-tag {
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000000;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 4px;
+      white-space: nowrap;
+      border: 1px solid #ffffff;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .marker-handle:not(.always-tag) .marker-tag {
+        display: none;
+      }
+      .marker-handle.dragging .marker-tag,
+      .marker-handle:focus-visible .marker-tag {
+        display: block;
+      }
+    }
+
+    /* Overlay de Recorte Manual (Crop) */
+    #crop-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      pointer-events: none;
+    }
+
+    #crop-overlay.active {
+      display: block;
+    }
+
+    #crop-box {
+      position: absolute;
+      border: 2px dashed #ffe14a;
+      box-shadow: 0 0 0 9999px rgba(32, 32, 32, 0.55);
+      pointer-events: auto;
+      cursor: move;
+      touch-action: none;
+    }
+
+    .crop-corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #ffe14a;
+      border: 2px solid #000000;
+      touch-action: none;
+    }
+
+    .crop-nw { top: -9px; left: -9px; cursor: nwse-resize; }
+    .crop-ne { top: -9px; right: -9px; cursor: nesw-resize; }
+    .crop-sw { bottom: -9px; left: -9px; cursor: nesw-resize; }
+    .crop-se { bottom: -9px; right: -9px; cursor: nwse-resize; }
+
+    /* Badges en el escenario */
+    .stage-hud-top {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .mm-badge {
+      background: #000080;
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border: 2px solid;
+      border-color: #7aa2d6 #001040 #001040 #7aa2d6;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .blink {
+      animation: blink 1.1s steps(2, end) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.45; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blink { animation: none; }
+    }
+
+    .mm-countdown {
+      background: #fff4b8;
+      border: 2px solid #111111;
+      color: #111111;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      box-shadow: 2px 2px 0 #111111;
+    }
+
+    /* Barra de estado inferior estilo Windows */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.28rem 0.5rem;
+      background: #d4d0c8;
+      border: 2px solid;
+      border-color: #808080 #ffffff #ffffff #808080;
+      font-size: 0.75rem;
+      min-height: 1.75rem;
+    }
+
+    /* Vúmetro de 10 barras */
+    .vu-meter {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 18px;
+      padding: 2px 4px;
+      background: #140c22;
+      border: 1px solid #404040;
+    }
+
+    .vu-bar {
+      width: 5px;
+      height: 100%;
+      background: #3a3a4a;
+      transition: background-color 0.05s linear;
+    }
+
+    /* Secciones de la barra lateral */
+    .sidebar-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tool-group {
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .tool-group-header {
+      background: #000080;
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.22rem 0.45rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+    }
+
+    .btn-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.3rem;
+    }
+
+    /* Sliders */
+    input[type="range"].slider {
+      accent-color: #000080;
+      width: 100%;
+      height: 1.65rem;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .control-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    /* Toggles retro cuadrados */
+    .retro-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.22rem 0.3rem;
+      background: #dcd8d0;
+      border: 1px solid #808080;
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .retro-switch {
+      position: relative;
+      width: 36px;
+      height: 18px;
+      background: #808080;
+      border: 2px solid;
+      border-color: #404040 #ffffff #ffffff #404040;
+      flex-shrink: 0;
+    }
+
+    .retro-switch::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15px;
+      height: 14px;
+      background: #d4d0c8;
+      border: 1px solid;
+      border-color: #ffffff #404040 #404040 #ffffff;
+      transition: left 0.1s ease;
+    }
+
+    .retro-toggle-row input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .retro-toggle-row input:checked + .retro-switch {
+      background: #0a246a;
+    }
+
+    .retro-toggle-row input:checked + .retro-switch::after {
+      left: 17px;
+    }
+
+    /* Inputs y Textareas clásicos */
+    .win-input, .win-select, .win-textarea {
+      width: 100%;
+      font-family: Tahoma, Verdana, sans-serif;
+      font-size: 0.78rem;
+      color: #000000;
+      background: #ffffff;
+      border: 2px solid;
+      border-color: #404040 #ffffff #ffffff #404040;
+      box-shadow: inset 1px 1px 0 #808080;
+      padding: 0.35rem 0.45rem;
+    }
+
+    .win-textarea {
+      resize: vertical;
+      min-height: 3.6rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- CABECERA RETRO -->
+    <header class="mm-panel">
+      <div class="mm-titlebar">
+        <h1>
+          <span>🎭 Animutation Puppet Maker</span>
+        </h1>
+        <span class="mm-brand">Macromedia</span>
+      </div>
+      <div class="header-top-row">
+        <div>
+          <p class="mm-caption">Sube una cara, marca la boca y haz que cante como un flash de 2003.</p>
+          <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; gap: 0.35rem;">
+            <button id="mode-edit-btn" class="mm-btn mm-btn-on" type="button">✏️ Editar puntos</button>
+            <button id="mode-play-btn" class="mm-btn mm-btn-primary" type="button">⚡ ¡Animar!</button>
+            <button id="mode-still-btn" class="mm-btn" type="button">🖼️ Solo imagen</button>
+          </div>
+        </div>
+
+        <div class="cafecito-retro-wrap">
+          <span class="cafecito-retro-label">¿Te gusta Animutation forever?</span>
+          <a href="https://cafecito.app/xd_77" rel="noopener" target="_blank">
+            <img
+              srcset="https://cdn.cafecito.app/imgs/buttons/button_5.png 1x, https://cdn.cafecito.app/imgs/buttons/button_5_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_5_3.75x.png 3.75x"
+              src="https://cdn.cafecito.app/imgs/buttons/button_5.png"
+              alt="Invitame un café en cafecito.app"
+              onerror="this.parentElement.innerHTML='<span class=\'mm-btn\' style=\'font-size:0.72rem;padding:2px 6px;\'>☕ Invitame un Cafecito</span>'"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ÁREA DE TRABAJO PRINCIPAL (2 COLUMNAS EN ESCRITORIO) -->
+    <main class="workspace">
+      <!-- COLUMNA IZQUIERDA: ESCENARIO -->
+      <section class="stage-column">
+        <div class="mm-panel mm-stage-wrapper">
+          <div id="stage-container" class="mm-stage" aria-label="Escenario del títere">
+            <canvas id="stage-canvas"></canvas>
+
+            <!-- HUD Superior -->
+            <div class="stage-hud-top">
+              <div id="live-badge" class="mm-badge blink hidden">● AL AIRE — FLASH 2003</div>
+              <div id="rec-countdown" class="mm-countdown hidden">⏺ Grabando: faltan 6s</div>
+            </div>
+
+            <!-- Capa de 15 Puntos Interactivos -->
+            <div id="markers-layer"></div>
+
+            <!-- Capa de Recorte Manual (Crop) -->
+            <div id="crop-overlay">
+              <div id="crop-box">
+                <div class="crop-corner crop-nw" data-handle="nw"></div>
+                <div class="crop-corner crop-ne" data-handle="ne"></div>
+                <div class="crop-corner crop-sw" data-handle="sw"></div>
+                <div class="crop-corner crop-se" data-handle="se"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barra de controles rápidos de vista y recorte -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.35rem;">
+            <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+              <button id="btn-center-head" class="mm-btn" type="button" title="Zoom inteligente sobre la cabeza">🎯 Centrar cabeza</button>
+              <button id="btn-fit-view" class="mm-btn" type="button" title="Ver imagen completa">⛶ Ajustar</button>
+              <button id="btn-undo" class="mm-btn" type="button" disabled>↩ Deshacer</button>
+            </div>
+            <div id="crop-actions" class="hidden" style="display: flex; gap: 0.3rem;">
+              <button id="btn-apply-crop" class="mm-btn mm-btn-primary" type="button">✔ Aplicar recorte</button>
+              <button id="btn-cancel-crop" class="mm-btn" type="button">✖ Cancelar</button>
+            </div>
+          </div>
+
+          <!-- Barra de Estado Windows + Vúmetro -->
+          <div class="status-bar">
+            <span id="status-text">Listo. Arrastra los 15 puntos o pulsa "¡Animar!".</span>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="font-size: 0.7rem; font-weight: 700;">AUDIO:</span>
+              <div id="vu-meter" class="vu-meter" aria-hidden="true">
+                <div class="vu-bar" data-bar="0"></div>
+                <div class="vu-bar" data-bar="1"></div>
+                <div class="vu-bar" data-bar="2"></div>
+                <div class="vu-bar" data-bar="3"></div>
+                <div class="vu-bar" data-bar="4"></div>
+                <div class="vu-bar" data-bar="5"></div>
+                <div class="vu-bar" data-bar="6"></div>
+                <div class="vu-bar" data-bar="7"></div>
+                <div class="vu-bar" data-bar="8"></div>
+                <div class="vu-bar" data-bar="9"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLUMNA DERECHA: PANELES DE HERRAMIENTAS -->
+      <aside class="sidebar-column">
+        <!-- 1. IMAGEN Y ROSTRO IA -->
+        <div class="mm-panel tool-group">
+          <div class="tool-group-header">
+            <span>1. IMAGEN Y DETECCIÓN IA</span>
+            <span>JPG/PNG</span>
+          </div>
+          <input id="input-image" type="file" accept="image/png,image/jpeg,image/webp" class="hidden" />
+          <div class="btn-grid-2">
+            <button id="btn-upload-img" class="mm-btn" type="button">📁 Subir cara</button>
+            <button id="btn-load-bean" class="mm-btn" type="button">🤵 Bean (Muestra)</button>
+            <button id="btn-auto-face" class="mm-btn mm-btn-primary" type="button">🤖 Auto-detectar</button>
+            <button id="btn-remove-bg" class="mm-btn" type="button">✂️ Quitafondos IA</button>
+            <button id="btn-start-crop" class="mm-btn" type="button">⬚ Recortar manual</button>
+            <button id="btn-trim-alpha" class="mm-btn" type="button">📐 Recorte sobrante</button>
+          </div>
+          <button id="btn-patch-mouth" class="mm-btn" type="button" style="width: 100%;">🩹 Parchear boca abierta original</button>
+        </div>
+
+        <!-- 2. AUDIO Y MICRÓFONO -->
+        <div class="mm-panel tool-group">
+          <div class="tool-group-header">
+            <span>2. MOTOR DE AUDIO (WEB AUDIO)</span>
+            <span>FFT</span>
+          </div>
+          <input id="input-audio" type="file" accept="audio/*" class="hidden" />
+          <div class="btn-grid-2">
+            <button id="btn-mic" class="mm-btn" type="button">🎙️ Micrófono</button>
+            <button id="btn-sim" class="mm-btn" type="button">🗣️ Simular voz</button>
+          </div>
+          <button id="btn-upload-audio" class="mm-btn" type="button" style="width: 100%;">🎵 Subir MP3 / WAV</button>
+          <button id="btn-toggle-audio" class="mm-btn hidden" type="button" style="width: 100%;">⏯ Pausar / Reanudar pista</button>
+          <div class="control-row">
+            <div class="control-label-row">
+              <label for="slider-volume">Volumen de pista</label>
+              <span id="val-volume">85%</span>
+            </div>
+            <input id="slider-volume" class="slider" type="range" min="0" max="1" step="0.05" value="0.85" />
+          </div>
+        </div>
+
+        <!-- 3. LOQUENDO TTS 2003 -->
+        <div class="mm-panel tool-group">
+          <div class="tool-group-header">
+            <span>3. LOQUENDO TTS 2003</span>
+            <span>SÍNTESIS</span>
+          </div>
+          <textarea id="tts-text" class="win-textarea" placeholder="Escribe aquí lo que dirá tu títere...">Hola amigos de YouTube, bienvenidos a mi nuevo vídeo loquendo de 2003. ¡Suscríbanse o les tiro un zapato!</textarea>
+          <div class="btn-grid-2">
+            <button class="mm-btn tts-preset" data-preset="jorge" type="button">👨 Jorge (Clásico)</button>
+            <button class="mm-btn tts-preset" data-preset="carlos" type="button">🧔 Carlos (Grave)</button>
+            <button class="mm-btn tts-preset" data-preset="carmen" type="button">👩 Carmen (Mujer)</button>
+            <button class="mm-btn tts-preset" data-preset="ardilla" type="button">🐿️ Ardilla 2003</button>
+          </div>
+          <select id="tts-voice" class="win-select" aria-label="Voz del sistema"></select>
+          <div class="btn-grid-2">
+            <div class="control-row">
+              <div class="control-label-row">
+                <label for="tts-pitch">Tono</label>
+                <span id="val-pitch">0.95</span>
+              </div>
+              <input id="tts-pitch" class="slider" type="range" min="0" max="2" step="0.05" value="0.95" />
+            </div>
+            <div class="control-row">
+              <div class="control-label-row">
+                <label for="tts-rate">Velocidad</label>
+                <span id="val-rate">1.05</span>
+              </div>
+              <input id="tts-rate" class="slider" type="range" min="0.5" max="2" step="0.05" value="1.05" />
+            </div>
+          </div>
+          <div class="btn-grid-2">
+            <button id="btn-tts-speak" class="mm-btn mm-btn-primary" type="button">▶ Hablar texto</button>
+            <button id="btn-tts-stop" class="mm-btn" type="button">⏹ Detener voz</button>
+          </div>
+        </div>
+
+        <!-- 4. AJUSTES DE BOCA Y EFECTOS FLASH -->
+        <div class="mm-panel tool-group">
+          <div class="tool-group-header">
+            <span>4. BOCA Y EFECTOS FLASH 2003</span>
+            <span>FX</span>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <label for="slider-sensitivity">Sensibilidad de la boca</label>
+              <span id="val-sensitivity">1.25x</span>
+            </div>
+            <input id="slider-sensitivity" class="slider" type="range" min="0.4" max="2.4" step="0.05" value="1.25" />
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Apertura máxima de boca</span>
+              <span id="val-mouth-max">110%</span>
+            </div>
+            <div class="btn-grid-2">
+              <button id="btn-mouth-less" class="mm-btn" type="button">▲ − Cerrar más</button>
+              <button id="btn-mouth-more" class="mm-btn" type="button">▼ + Abrir más</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <div class="control-label-row">
+              <span>Ancho de mandíbula</span>
+              <span id="val-mouth-width">100%</span>
+            </div>
+            <div class="btn-grid-2">
+              <button id="btn-width-less" class="mm-btn" type="button">◀ Angostar (-)</button>
+              <button id="btn-width-more" class="mm-btn" type="button">Ensanchar (+) ▶</button>
+            </div>
+          </div>
+
+          <label class="retro-toggle-row">
+            <span>☀️ Rayos giratorios</span>
+            <input id="fx-rays" type="checkbox" checked />
+            <span class="retro-switch"></span>
+          </label>
+          <label class="retro-toggle-row">
+            <span>🌀 Espiral psicodélica</span>
+            <input id="fx-spiral" type="checkbox" checked />
+            <span class="retro-switch"></span>
+          </label>
+          <label class="retro-toggle-row">
+            <span>✨ Estrellas 2003</span>
+            <input id="fx-stars" type="checkbox" checked />
+            <span class="retro-switch"></span>
+          </label>
+          <label class="retro-toggle-row">
+            <span>🔊 Zoom al bajo</span>
+            <input id="fx-zoom" type="checkbox" checked />
+            <span class="retro-switch"></span>
+          </label>
+          <label class="retro-toggle-row">
+            <span>💫 Rotación suave</span>
+            <input id="fx-spin" type="checkbox" checked />
+            <span class="retro-switch"></span>
+          </label>
+        </div>
+
+        <!-- 5. PROYECTO Y EXPORTACIÓN -->
+        <div class="mm-panel tool-group">
+          <div class="tool-group-header">
+            <span>5. PROYECTO Y EXPORTAR</span>
+            <span>REC</span>
+          </div>
+          <input id="input-project" type="file" accept=".json,application/json" class="hidden" />
+          <div class="btn-grid-2">
+            <button id="btn-save-project" class="mm-btn" type="button">💾 Guardar .json</button>
+            <button id="btn-load-project" class="mm-btn" type="button">📂 Abrir .json</button>
+          </div>
+          <div class="control-row">
+            <div class="control-label-row">
+              <label for="slider-rec-duration">Duración del video</label>
+              <span id="val-rec-duration">6s</span>
+            </div>
+            <input id="slider-rec-duration" class="slider" type="range" min="2" max="30" step="1" value="6" />
+          </div>
+          <div class="btn-grid-2">
+            <button id="btn-export-png" class="mm-btn" type="button">🖼️ Guardar PNG</button>
+            <button id="btn-export-video" class="mm-btn mm-btn-primary" type="button">🎬 Grabar Video</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module">
+    /* ==========================================================================
+       MÓDULO 1: CONSTANTES Y VALORES POR DEFECTO (types-defaults.js)
+       ========================================================================== */
+    const STORAGE_KEY = "animutation-puppet-settings-v1";
+
+    const DEFAULT_FX = {
+      rays: true,
+      spiral: true,
+      stars: true,
+      zoom: true,
+      spin: true,
+      sensitivity: 1.25,
+      mouthMax: 1.1,
+      mouthWidth: 1.0,
+    };
+
+    const SILENT_SAMPLE = {
+      level: 0,
+      bass: 0,
+      lowMid: 0,
+      highMid: 0,
+      tilt: 0,
+      onset: 0,
+    };
+
+    const FLASH_PALETTE = ["#ff2f7b", "#ffe14a", "#3dffe8", "#fff6df"];
+
+    const TTS_PRESETS = {
+      jorge: {
+        pitch: 0.95,
+        rate: 1.05,
+        preferNames: ["jorge", "diego", "juan", "pablo", "carlos", "spanish", "español"],
+      },
+      carlos: {
+        pitch: 0.65,
+        rate: 0.95,
+        preferNames: ["carlos", "jorge", "diego", "juan", "pablo", "spanish", "español"],
+      },
+      carmen: {
+        pitch: 1.35,
+        rate: 1.05,
+        preferNames: ["carmen", "sabina", "paulina", "helena", "mónica", "lucía", "laura", "spanish", "español"],
+      },
+      ardilla: {
+        pitch: 1.75,
+        rate: 1.25,
+        preferNames: ["jorge", "spanish", "español"],
+      },
+    };
+
+    function clamp(val, min, max) {
+      return Math.max(min, Math.min(max, val));
+    }
+
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    /* ==========================================================================
+       MÓDULO 2: GEOMETRÍA Y ENCUADRE (geometry.js)
+       ========================================================================== */
+    function fitView(stageW, stageH, imgW, imgH, pad = 24) {
+      const availW = Math.max(40, stageW - pad * 2);
+      const availH = Math.max(40, stageH - pad * 2);
+      const scale = Math.min(availW / imgW, availH / imgH);
+      const ox = (stageW - imgW * scale) / 2;
+      const oy = (stageH - imgH * scale) / 2;
+      return { scale, ox, oy };
+    }
+
+    function faceView(stageW, stageH, imgW, imgH, markers) {
+      const pts = [
+        markers.eyeL,
+        markers.eyeR,
+        markers.nose,
+        ...markers.mouth,
+        ...markers.jaw,
+      ];
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      for (const p of pts) {
+        if (p.x < minX) minX = p.x;
+        if (p.y < minY) minY = p.y;
+        if (p.x > maxX) maxX = p.x;
+        if (p.y > maxY) maxY = p.y;
+      }
+      const boxW = Math.max(60, maxX - minX);
+      const boxH = Math.max(60, maxY - minY);
+      const cx = (minX + maxX) / 2;
+      const cy = (minY + maxY) / 2 - boxH * 0.12;
+      const targetScale = Math.min((stageW * 0.62) / boxW, (stageH * 0.62) / boxH);
+      const base = fitView(stageW, stageH, imgW, imgH);
+      const scale = clamp(targetScale, base.scale * 0.85, base.scale * 2.8);
+      const ox = stageW / 2 - cx * scale;
+      const oy = stageH / 2 - cy * scale;
+      return { scale, ox, oy };
+    }
+
+    function imgToView(pt, view) {
+      return {
+        x: view.ox + pt.x * view.scale,
+        y: view.oy + pt.y * view.scale,
+      };
+    }
+
+    function viewToImg(pt, view, imgW, imgH) {
+      return {
+        x: clamp((pt.x - view.ox) / view.scale, 0, imgW),
+        y: clamp((pt.y - view.oy) / view.scale, 0, imgH),
+      };
+    }
+
+    /* ==========================================================================
+       MÓDULO 3: MODELO DE 15 PUNTOS Y BLOQUE DE MANDÍBULA JIBJAB (markers.js)
+       ========================================================================== */
+    const MARKER_META = [
+      { key: "eyeL", label: "Ojo izquierdo", short: "Ojo L", tone: "cyan", alwaysTag: true },
+      { key: "eyeR", label: "Ojo derecho", short: "Ojo R", tone: "cyan", alwaysTag: true },
+      { key: "nose", label: "Nariz", short: "Nariz", tone: "yellow", alwaysTag: true },
+      { key: "mouth.0", label: "Comisura izquierda", short: "Boca L", tone: "pink", alwaysTag: false },
+      { key: "mouth.1", label: "Labio izquierdo", short: "Labio", tone: "pink", alwaysTag: false },
+      { key: "mouth.2", label: "Centro de la boca", short: "Centro", tone: "pink", alwaysTag: true },
+      { key: "mouth.3", label: "Labio derecho", short: "Labio", tone: "pink", alwaysTag: false },
+      { key: "mouth.4", label: "Comisura derecha", short: "Boca R", tone: "pink", alwaysTag: false },
+      { key: "jaw.0", label: "Mandíbula izquierda", short: "M. L", tone: "yellow", alwaysTag: false },
+      { key: "jaw.1", label: "Mandíbula baja izq", short: "M", tone: "yellow", alwaysTag: false },
+      { key: "jaw.2", label: "Mentón izquierdo", short: "Mentón", tone: "yellow", alwaysTag: false },
+      { key: "jaw.3", label: "Barbilla central", short: "Barbilla", tone: "yellow", alwaysTag: true },
+      { key: "jaw.4", label: "Mentón derecho", short: "Mentón", tone: "yellow", alwaysTag: false },
+      { key: "jaw.5", label: "Mandíbula baja der", short: "M", tone: "yellow", alwaysTag: false },
+      { key: "jaw.6", label: "Mandíbula derecha", short: "M. R", tone: "yellow", alwaysTag: false },
+    ];
+
+    function cloneMarkers(m) {
+      return {
+        eyeL: { ...m.eyeL },
+        eyeR: { ...m.eyeR },
+        nose: { ...m.nose },
+        mouth: m.mouth.map((p) => ({ ...p })),
+        jaw: m.jaw.map((p) => ({ ...p })),
+      };
+    }
+
+    function getMarkerPoint(markers, key) {
+      if (key === "eyeL" || key === "eyeR" || key === "nose") return markers[key];
+      const [group, idxStr] = key.split(".");
+      return markers[group][Number(idxStr)];
+    }
+
+    function setMarkerPoint(markers, key, pt) {
+      if (key === "eyeL" || key === "eyeR" || key === "nose") {
+        markers[key] = { x: pt.x, y: pt.y };
+        return;
+      }
+      const [group, idxStr] = key.split(".");
+      markers[group][Number(idxStr)] = { x: pt.x, y: pt.y };
+    }
+
+    function sanitizeMarkers(markers, imgW = 2000, imgH = 2000) {
+      const m = cloneMarkers(markers);
+      const clampPt = (p) => ({
+        x: clamp(p.x, 0, imgW),
+        y: clamp(p.y, 0, imgH),
+      });
+      m.eyeL = clampPt(m.eyeL);
+      m.eyeR = clampPt(m.eyeR);
+      m.nose = clampPt(m.nose);
+      m.mouth = m.mouth.map(clampPt);
+      m.jaw = m.jaw.map(clampPt);
+
+      if (m.jaw[0].y < m.mouth[0].y + 6) m.jaw[0].y = clamp(m.mouth[0].y + 6, 0, imgH);
+      if (m.jaw[6].y < m.mouth[4].y + 6) m.jaw[6].y = clamp(m.mouth[4].y + 6, 0, imgH);
+      if (m.jaw[3].y < m.mouth[2].y + 16) m.jaw[3].y = clamp(m.mouth[2].y + 16, 0, imgH);
+      return m;
+    }
+
+    function defaultMarkersForSize(w, h) {
+      const cx = w * 0.5;
+      const eyeY = h * 0.38;
+      const eyeSpan = w * 0.14;
+      const noseY = h * 0.51;
+      const mouthY = h * 0.63;
+      const mouthHalf = w * 0.13;
+      const jawY = h * 0.81;
+
+      return sanitizeMarkers({
+        eyeL: { x: cx - eyeSpan, y: eyeY },
+        eyeR: { x: cx + eyeSpan, y: eyeY },
+        nose: { x: cx, y: noseY },
+        mouth: [
+          { x: cx - mouthHalf, y: mouthY },
+          { x: cx - mouthHalf * 0.5, y: mouthY - 2 },
+          { x: cx, y: mouthY },
+          { x: cx + mouthHalf * 0.5, y: mouthY - 2 },
+          { x: cx + mouthHalf, y: mouthY },
+        ],
+        jaw: [
+          { x: cx - mouthHalf * 1.15, y: mouthY + h * 0.04 },
+          { x: cx - mouthHalf * 0.95, y: mouthY + h * 0.11 },
+          { x: cx - mouthHalf * 0.55, y: jawY - h * 0.02 },
+          { x: cx, y: jawY },
+          { x: cx + mouthHalf * 0.55, y: jawY - h * 0.02 },
+          { x: cx + mouthHalf * 0.95, y: mouthY + h * 0.11 },
+          { x: cx + mouthHalf * 1.15, y: mouthY + h * 0.04 },
+        ],
+      }, w, h);
+    }
+
+    function mouthAngle(markers) {
+      const dxM = markers.mouth[4].x - markers.mouth[0].x;
+      const dyM = markers.mouth[4].y - markers.mouth[0].y;
+      const aM = Math.atan2(dyM, dxM);
+
+      const dxE = markers.eyeR.x - markers.eyeL.x;
+      const dyE = markers.eyeR.y - markers.eyeL.y;
+      const aE = Math.atan2(dyE, dxE);
+
+      const sinAvg = Math.sin(aM) + Math.sin(aE);
+      const cosAvg = Math.cos(aM) + Math.cos(aE);
+      return Math.atan2(sinAvg, cosAvg);
+    }
+
+    function mouthBlock(markers, widthScale = 1.0) {
+      const m0 = markers.mouth[0];
+      const m4 = markers.mouth[4];
+      const rawW = Math.max(8, Math.hypot(m4.x - m0.x, m4.y - m0.y));
+      const w = Math.max(8, rawW * clamp(widthScale, 0.45, 1.8));
+
+      const eyesMidX = (markers.eyeL.x + markers.eyeR.x) / 2;
+      const noseOffset = markers.nose.x - eyesMidX;
+      const mouthCenterX = (m0.x + m4.x) / 2 + clamp(noseOffset * 0.12, -rawW * 0.18, rawW * 0.18);
+
+      const top = (m0.y + m4.y) / 2;
+      const bottom = Math.max(markers.jaw[3].y, top + w * 0.42);
+      const h = Math.max(18, bottom - top);
+      const radius = Math.min(w * 0.2, h * 0.34);
+
+      return {
+        cx: mouthCenterX,
+        cy: top + h / 2,
+        w,
+        h,
+        top,
+        bottom,
+        radius,
+      };
+    }
+
+    function cutPath(markers, widthScale = 1.0) {
+      const b = mouthBlock(markers, widthScale);
+      const ang = mouthAngle(markers);
+      const hw = b.w / 2;
+      const hh = b.h / 2;
+      const rTop = b.radius * 0.28;
+      const rBot = b.radius;
+
+      const local = new Path2D();
+      local.moveTo(-hw + rTop, -hh);
+      local.lineTo(hw - rTop, -hh);
+      local.quadraticCurveTo(hw, -hh, hw, -hh + rTop);
+      local.lineTo(hw, hh - rBot);
+      local.quadraticCurveTo(hw, hh, hw - rBot, hh);
+      local.lineTo(-hw + rBot, hh);
+      local.quadraticCurveTo(-hw, hh, -hw, hh - rBot);
+      local.lineTo(-hw, -hh + rTop);
+      local.quadraticCurveTo(-hw, -hh, -hw + rTop, -hh);
+      local.closePath();
+
+      const world = new Path2D();
+      const mat = new DOMMatrix()
+        .translateSelf(b.cx, b.cy)
+        .rotateSelf((ang * 180) / Math.PI);
+      world.addPath(local, mat);
+      return world;
+    }
+
+    function mouthOpenPx(markers, amount, mouthMax = 1.1, widthScale = 1.0) {
+      const block = mouthBlock(markers, widthScale);
+      const gap = Math.min(block.h * 0.7, Math.max(14, block.w * 0.4)) * clamp(mouthMax, 0.4, 2.2);
+      return clamp(amount, 0, 1) * gap;
+    }
+
+    /* ==========================================================================
+       MÓDULO 4: PERSONAJE DE MUESTRA POR DEFECTO (sample-face.js)
+       Genera un retrato estilizado estilo Flash 2003 de alta nitidez (384x520)
+       con 15 puntos calibrados listos para usar sin dependencias externas rotas.
+       ========================================================================== */
+    function createSampleBeanPuppet() {
+      const w = 384;
+      const h = 520;
+      const canvas = document.createElement("canvas");
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d");
+
+      // Fondo transparente (estilo recorte limpio listo para animutation)
+      ctx.clearRect(0, 0, w, h);
+
+      // Traje y corbata
+      ctx.fillStyle = "#3a322d";
+      ctx.beginPath();
+      ctx.moveTo(54, 520);
+      ctx.quadraticCurveTo(64, 415, 138, 398);
+      ctx.lineTo(246, 398);
+      ctx.quadraticCurveTo(320, 415, 330, 520);
+      ctx.closePath();
+      ctx.fill();
+
+      // Camisa blanca
+      ctx.fillStyle = "#f5f3ee";
+      ctx.beginPath();
+      ctx.moveTo(150, 398);
+      ctx.lineTo(234, 398);
+      ctx.lineTo(205, 520);
+      ctx.lineTo(179, 520);
+      ctx.closePath();
+      ctx.fill();
+
+      // Corbata roja clásica
+      ctx.fillStyle = "#9e1b24";
+      ctx.beginPath();
+      ctx.moveTo(182, 412);
+      ctx.lineTo(202, 412);
+      ctx.lineTo(212, 520);
+      ctx.lineTo(172, 520);
+      ctx.closePath();
+      ctx.fill();
+
+      // Cuello
+      const skinGrad = ctx.createLinearGradient(0, 120, 0, 420);
+      skinGrad.addColorStop(0, "#f2c39e");
+      skinGrad.addColorStop(0.65, "#e3aa80");
+      skinGrad.addColorStop(1, "#c88a62");
+      ctx.fillStyle = "#d5966c";
+      ctx.fillRect(156, 345, 72, 68);
+
+      // Orejas
+      ctx.fillStyle = "#e0a57b";
+      ctx.beginPath();
+      ctx.ellipse(94, 245, 20, 36, -0.1, 0, Math.PI * 2);
+      ctx.ellipse(290, 245, 20, 36, 0.1, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "#8a5636";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Cabeza / Rostro ovalado alargado característico
+      ctx.fillStyle = skinGrad;
+      ctx.beginPath();
+      ctx.moveTo(104, 185);
+      ctx.bezierCurveTo(102, 95, 282, 95, 280, 185);
+      ctx.bezierCurveTo(282, 295, 255, 378, 192, 384);
+      ctx.bezierCurveTo(129, 378, 102, 295, 104, 185);
+      ctx.closePath();
+      ctx.fill();
+      ctx.strokeStyle = "#6e4226";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Cabello peinado con raya lateral
+      ctx.fillStyle = "#241914";
+      ctx.beginPath();
+      ctx.moveTo(101, 205);
+      ctx.bezierCurveTo(88, 115, 145, 68, 205, 74);
+      ctx.bezierCurveTo(265, 78, 296, 128, 283, 205);
+      ctx.bezierCurveTo(276, 152, 248, 134, 192, 136);
+      ctx.bezierCurveTo(145, 138, 112, 155, 101, 205);
+      ctx.closePath();
+      ctx.fill();
+
+      // Cejas expresivas gruesas
+      ctx.fillStyle = "#1f1510";
+      ctx.beginPath();
+      ctx.moveTo(122, 184);
+      ctx.quadraticCurveTo(148, 166, 174, 182);
+      ctx.lineTo(171, 191);
+      ctx.quadraticCurveTo(148, 178, 124, 192);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(210, 182);
+      ctx.quadraticCurveTo(236, 164, 264, 184);
+      ctx.lineTo(260, 192);
+      ctx.quadraticCurveTo(236, 178, 213, 191);
+      ctx.closePath();
+      ctx.fill();
+
+      // Ojos saltones cómicos
+      for (const ex of [148, 236]) {
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.ellipse(ex, 208, 21, 15, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "#3d2415";
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        ctx.fillStyle = "#3b2314";
+        ctx.beginPath();
+        ctx.arc(ex, 208, 9, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#000000";
+        ctx.beginPath();
+        ctx.arc(ex, 208, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(ex - 3, 205, 2.3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Nariz prominente
+      ctx.fillStyle = "#d9986c";
+      ctx.beginPath();
+      ctx.moveTo(186, 210);
+      ctx.quadraticCurveTo(174, 266, 178, 274);
+      ctx.quadraticCurveTo(192, 284, 208, 274);
+      ctx.quadraticCurveTo(211, 264, 199, 210);
+      ctx.fill();
+      ctx.strokeStyle = "#7c4a2b";
+      ctx.lineWidth = 2.4;
+      ctx.beginPath();
+      ctx.moveTo(177, 266);
+      ctx.quadraticCurveTo(192, 283, 208, 266);
+      ctx.stroke();
+
+      // Líneas de expresión (surcos nasogenianos)
+      ctx.strokeStyle = "rgba(110, 62, 34, 0.55)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(156, 270);
+      ctx.quadraticCurveTo(138, 298, 142, 326);
+      ctx.moveTo(228, 270);
+      ctx.quadraticCurveTo(246, 298, 242, 326);
+      ctx.stroke();
+
+      // Boca cerrada con sonrisa pícara
+      ctx.strokeStyle = "#4f211a";
+      ctx.lineWidth = 3.5;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(146, 314);
+      ctx.quadraticCurveTo(192, 326, 238, 314);
+      ctx.stroke();
+
+      // Labio inferior sombra
+      ctx.strokeStyle = "#b87452";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(168, 330);
+      ctx.quadraticCurveTo(192, 336, 216, 330);
+      ctx.stroke();
+
+      // Barbilla sutil
+      ctx.strokeStyle = "rgba(110, 62, 34, 0.45)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(192, 358, 16, 0.25 * Math.PI, 0.75 * Math.PI);
+      ctx.stroke();
+
+      const markers = sanitizeMarkers({
+        eyeL: { x: 148, y: 208 },
+        eyeR: { x: 236, y: 208 },
+        nose: { x: 192, y: 266 },
+        mouth: [
+          { x: 146, y: 314 },
+          { x: 169, y: 318 },
+          { x: 192, y: 320 },
+          { x: 215, y: 318 },
+          { x: 238, y: 314 },
+        ],
+        jaw: [
+          { x: 132, y: 326 },
+          { x: 144, y: 348 },
+          { x: 166, y: 369 },
+          { x: 192, y: 382 },
+          { x: 218, y: 369 },
+          { x: 240, y: 348 },
+          { x: 252, y: 326 },
+        ],
+      }, w, h);
+
+      return { canvas, markers };
+    }
+
+    /* ==========================================================================
+       MÓDULO 5: OPERACIONES DE IMAGEN Y QUITAFONDOS IA (image-ops.js)
+       ========================================================================== */
+    function resizeImageToCanvas(source, maxDim = 1280) {
+      const srcW = source.naturalWidth || source.videoWidth || source.width;
+      const srcH = source.naturalHeight || source.videoHeight || source.height;
+      const scale = Math.min(1, maxDim / Math.max(srcW, srcH));
+      const w = Math.max(1, Math.round(srcW * scale));
+      const h = Math.max(1, Math.round(srcH * scale));
+      const c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+      const ctx = c.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(source, 0, 0, w, h);
+      return c;
+    }
+
+    function loadImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          resolve(resizeImageToCanvas(img, 1280));
+        };
+        img.onerror = (err) => {
+          URL.revokeObjectURL(url);
+          reject(err);
+        };
+        img.src = url;
+      });
+    }
+
+    function loadImageFromDataUrl(dataUrl) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(resizeImageToCanvas(img, 1280));
+        img.onerror = reject;
+        img.src = dataUrl;
+      });
+    }
+
+    function cropCanvasAndMarkers(canvas, markers, rect) {
+      const x = Math.max(0, Math.round(rect.x));
+      const y = Math.max(0, Math.round(rect.y));
+      const w = Math.max(24, Math.min(canvas.width - x, Math.round(rect.w)));
+      const h = Math.max(24, Math.min(canvas.height - y, Math.round(rect.h)));
+
+      const out = document.createElement("canvas");
+      out.width = w;
+      out.height = h;
+      const ctx = out.getContext("2d");
+      ctx.drawImage(canvas, x, y, w, h, 0, 0, w, h);
+
+      const shift = (p) => ({
+        x: clamp(p.x - x, 0, w),
+        y: clamp(p.y - y, 0, h),
+      });
+
+      const nextMarkers = sanitizeMarkers({
+        eyeL: shift(markers.eyeL),
+        eyeR: shift(markers.eyeR),
+        nose: shift(markers.nose),
+        mouth: markers.mouth.map(shift),
+        jaw: markers.jaw.map(shift),
+      }, w, h);
+
+      return { canvas: out, markers: nextMarkers };
+    }
+
+    function trimTransparency(canvas, markers, margin = 10) {
+      const w = canvas.width;
+      const h = canvas.height;
+      const ctx = canvas.getContext("2d");
+      const { data } = ctx.getImageData(0, 0, w, h);
+
+      let minX = w, minY = h, maxX = 0, maxY = 0;
+      let found = false;
+
+      for (let py = 0; py < h; py++) {
+        for (let px = 0; px < w; px++) {
+          const alpha = data[(py * w + px) * 4 + 3];
+          if (alpha > 16) {
+            found = true;
+            if (px < minX) minX = px;
+            if (px > maxX) maxX = px;
+            if (py < minY) minY = py;
+            if (py > maxY) maxY = py;
+          }
+        }
+      }
+
+      if (!found) return null;
+
+      const x = Math.max(0, minX - margin);
+      const y = Math.max(0, minY - margin);
+      const cw = Math.min(w - x, maxX - minX + 1 + margin * 2);
+      const ch = Math.min(h - y, maxY - minY + 1 + margin * 2);
+
+      if (cw >= w - 2 && ch >= h - 2) return null;
+      return cropCanvasAndMarkers(canvas, markers, { x, y, w: cw, h: ch });
+    }
+
+    function patchOpenMouth(canvas, markers) {
+      const w = canvas.width;
+      const h = canvas.height;
+      const out = document.createElement("canvas");
+      out.width = w;
+      out.height = h;
+      const ctx = out.getContext("2d");
+      ctx.drawImage(canvas, 0, 0);
+
+      const m = markers.mouth;
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      for (const p of m) {
+        if (p.x < minX) minX = p.x;
+        if (p.y < minY) minY = p.y;
+        if (p.x > maxX) maxX = p.x;
+        if (p.y > maxY) maxY = p.y;
+      }
+
+      const pad = Math.max(10, (maxX - minX) * 0.22);
+      const sx = Math.max(0, Math.floor(minX - pad));
+      const sy = Math.max(0, Math.floor(minY - pad));
+      const sw = Math.min(w - sx, Math.ceil(maxX - minX + pad * 2));
+      const sh = Math.min(h - sy, Math.ceil(maxY - minY + pad * 2));
+
+      const imgData = ctx.getImageData(sx, sy, sw, sh).data;
+      let rSum = 0, gSum = 0, bSum = 0, count = 0;
+
+      // Muestrear el borde superior e inferior alrededor de los labios (tono piel)
+      for (let py = 0; py < sh; py++) {
+        for (let px = 0; px < sw; px++) {
+          if (py < pad * 0.65 || py > sh - pad * 0.65) {
+            const idx = (py * sw + px) * 4;
+            if (imgData[idx + 3] > 200) {
+              rSum += imgData[idx];
+              gSum += imgData[idx + 1];
+              bSum += imgData[idx + 2];
+              count++;
+            }
+          }
+        }
+      }
+
+      if (count > 0) {
+        const r = Math.round(rSum / count);
+        const g = Math.round(gSum / count);
+        const b = Math.round(bSum / count);
+
+        ctx.save();
+        ctx.filter = "blur(4px)";
+        ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+        ctx.beginPath();
+        const cx = (m[0].x + m[4].x) / 2;
+        const cy = (m[0].y + m[4].y) / 2;
+        const rx = Math.max(12, Math.hypot(m[4].x - m[0].x, m[4].y - m[0].y) * 0.52);
+        const ry = Math.max(8, rx * 0.36);
+        ctx.ellipse(cx, cy, rx, ry, mouthAngle(markers), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      return out;
+    }
+
+    async function removeBackgroundAI(canvas, onStatus) {
+      onStatus("Cargando modelo Quitafondos IA...");
+      const mod = await import("https://esm.sh/@imgly/background-removal@1.5.5");
+      const removeBackground = mod.removeBackground || mod.default;
+
+      const blob = await new Promise((res) => canvas.toBlob(res, "image/png"));
+      const resultBlob = await removeBackground(blob, {
+        progress: (key, current, total) => {
+          const pct = total > 0 ? Math.round((current / total) * 100) : 0;
+          onStatus(`Quitafondos IA: ${key}: ${pct}%`);
+        },
+      });
+
+      const url = URL.createObjectURL(resultBlob);
+      const img = new Image();
+      await new Promise((res, rej) => {
+        img.onload = res;
+        img.onerror = rej;
+        img.src = url;
+      });
+      URL.revokeObjectURL(url);
+      return resizeImageToCanvas(img, 1280);
+    }
+
+    /* ==========================================================================
+       MÓDULO 6: DETECCIÓN AUTOMÁTICA DE ROSTRO IA (face-detect.js)
+       ========================================================================== */
+    let cachedLandmarker = null;
+
+    function landmarksToMarkers(lm, w, h) {
+      const avgPts = (indices) => {
+        let sx = 0, sy = 0;
+        for (const i of indices) {
+          sx += lm[i].x * w;
+          sy += lm[i].y * h;
+        }
+        return { x: sx / indices.length, y: sy / indices.length };
+      };
+
+      const pt = (idx) => ({ x: lm[idx].x * w, y: lm[idx].y * h });
+
+      const eyeL = avgPts([33, 133, 159, 145]);
+      const eyeR = avgPts([263, 362, 386, 374]);
+      const nose = pt(1);
+
+      const m0 = pt(61);
+      const m4 = pt(291);
+      const upperMid = pt(13);
+      const lowerMid = pt(14);
+      const m2 = {
+        x: (upperMid.x + lowerMid.x) / 2,
+        y: (upperMid.y + lowerMid.y) / 2,
+      };
+
+      const p37 = pt(37);
+      const p267 = pt(267);
+      const m1 = { x: lerp(p37.x, m2.x, 0.35), y: lerp(p37.y, m2.y, 0.5) };
+      const m3 = { x: lerp(p267.x, m2.x, 0.35), y: lerp(p267.y, m2.y, 0.5) };
+
+      const jawIndices = [172, 136, 150, 152, 378, 365, 397];
+      const jaw = jawIndices.map(pt);
+
+      return sanitizeMarkers({
+        eyeL,
+        eyeR,
+        nose,
+        mouth: [m0, m1, m2, m3, m4],
+        jaw,
+      }, w, h);
+    }
+
+    async function detectFaceMarkers(canvas, onStatus) {
+      const w = canvas.width;
+      const h = canvas.height;
+
+      try {
+        if (!cachedLandmarker) {
+          onStatus("Descargando MediaPipe FaceLandmarker...");
+          const vision = await import("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/+esm");
+          const fileset = await vision.FilesetResolver.forVisionTasks(
+            "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm"
+          );
+          cachedLandmarker = await vision.FaceLandmarker.createFromOptions(fileset, {
+            baseOptions: {
+              modelAssetPath:
+                "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+              delegate: "GPU",
+            },
+            runningMode: "IMAGE",
+            numFaces: 1,
+          });
+        }
+
+        onStatus("Analizando 468 puntos faciales...");
+        const res = cachedLandmarker.detect(canvas);
+        if (res && res.faceLandmarks && res.faceLandmarks.length > 0) {
+          return landmarksToMarkers(res.faceLandmarks[0], w, h);
+        }
+      } catch (err) {
+        console.warn("MediaPipe no disponible, probando Shape Detection API:", err);
+      }
+
+      // Fallback nativo del navegador si existe window.FaceDetector
+      if ("FaceDetector" in window) {
+        onStatus("Probando detector facial nativo del navegador...");
+        const detector = new window.FaceDetector({ fastMode: true, maxDetectedFaces: 1 });
+        const faces = await detector.detect(canvas);
+        if (faces && faces.length > 0) {
+          const box = faces[0].boundingBox;
+          const cx = box.x + box.width * 0.5;
+          const ey = box.y + box.height * 0.38;
+          const ny = box.y + box.height * 0.56;
+          const my = box.y + box.height * 0.72;
+          const jy = box.y + box.height * 0.96;
+          const mw = box.width * 0.22;
+
+          return sanitizeMarkers({
+            eyeL: { x: cx - box.width * 0.2, y: ey },
+            eyeR: { x: cx + box.width * 0.2, y: ey },
+            nose: { x: cx, y: ny },
+            mouth: [
+              { x: cx - mw, y: my },
+              { x: cx - mw * 0.5, y: my },
+              { x: cx, y: my },
+              { x: cx + mw * 0.5, y: my },
+              { x: cx + mw, y: my },
+            ],
+            jaw: [
+              { x: cx - mw * 1.2, y: my + box.height * 0.06 },
+              { x: cx - mw, y: my + box.height * 0.14 },
+              { x: cx - mw * 0.6, y: jy - box.height * 0.03 },
+              { x: cx, y: jy },
+              { x: cx + mw * 0.6, y: jy - box.height * 0.03 },
+              { x: cx + mw, y: my + box.height * 0.14 },
+              { x: cx + mw * 1.2, y: my + box.height * 0.06 },
+            ],
+          }, w, h);
+        }
+      }
+
+      throw new Error("No se detectó ningún rostro claro en la imagen.");
+    }
+
+    /* ==========================================================================
+       MÓDULO 7: MOTOR WEB AUDIO API, MICRÓFONO Y SIMULADOR (audio-rig.js)
+       ========================================================================== */
+    class AudioRig {
+      constructor() {
+        this.ctx = null;
+        this.analyser = null;
+        this.audibleGain = null;
+        this.silentGain = null;
+        this.recordDest = null;
+
+        this.micStream = null;
+        this.micSource = null;
+
+        this.audioEl = null;
+        this.mediaSource = null;
+        this.trackName = "";
+
+        this.simActive = false;
+        this.simPhase = 0;
+        this.simTarget = 0;
+        this.simTimer = 0;
+
+        this.ttsBoost = 0;
+        this.prevEnergy = 0;
+        this.volume = 0.85;
+      }
+
+      ensureContext() {
+        if (!this.ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioCtx();
+          this.analyser = this.ctx.createAnalyser();
+          this.analyser.fftSize = 1024;
+          this.analyser.smoothingTimeConstant = 0.72;
+
+          this.audibleGain = this.ctx.createGain();
+          this.audibleGain.gain.value = this.volume;
+
+          this.silentGain = this.ctx.createGain();
+          this.silentGain.gain.value = 0;
+
+          this.recordDest = this.ctx.createMediaStreamDestination();
+
+          this.audibleGain.connect(this.ctx.destination);
+          this.audibleGain.connect(this.recordDest);
+          this.silentGain.connect(this.ctx.destination);
+        }
+        if (this.ctx.state === "suspended") {
+          this.ctx.resume();
+        }
+      }
+
+      setVolume(v) {
+        this.volume = clamp(v, 0, 1);
+        if (this.audibleGain) {
+          this.audibleGain.gain.value = this.volume;
+        }
+      }
+
+      async startMic() {
+        if (!window.isSecureContext && location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+          throw new Error("El micrófono requiere HTTPS o localhost por seguridad del navegador.");
+        }
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          throw new Error("Tu navegador no soporta captura de micrófono.");
+        }
+
+        this.stopMic();
+        this.simActive = false;
+        this.ensureContext();
+
+        try {
+          this.micStream = await navigator.mediaDevices.getUserMedia({
+            audio: {
+              echoCancellation: true,
+              noiseSuppression: true,
+              autoGainControl: true,
+            },
+          });
+        } catch (err) {
+          if (err.name === "NotAllowedError") {
+            throw new Error("Permiso de micrófono denegado. Habilítalo en la barra del navegador.");
+          }
+          if (err.name === "NotFoundError") {
+            throw new Error("No se encontró ningún micrófono conectado.");
+          }
+          throw new Error("Error al acceder al micrófono: " + err.message);
+        }
+
+        this.micSource = this.ctx.createMediaStreamSource(this.micStream);
+        // Conectar al analizador y a ganancia cero para evitar acople
+        this.micSource.connect(this.analyser);
+        this.micSource.connect(this.silentGain);
+      }
+
+      stopMic() {
+        if (this.micSource) {
+          try { this.micSource.disconnect(); } catch {}
+          this.micSource = null;
+        }
+        if (this.micStream) {
+          this.micStream.getTracks().forEach((t) => t.stop());
+          this.micStream = null;
+        }
+      }
+
+      loadFile(file) {
+        this.stopMic();
+        this.simActive = false;
+        this.ensureContext();
+
+        if (this.audioEl) {
+          this.audioEl.pause();
+        }
+
+        const url = URL.createObjectURL(file);
+        const audio = new Audio();
+        audio.src = url;
+        audio.crossOrigin = "anonymous";
+        audio.loop = true;
+
+        const source = this.ctx.createMediaElementSource(audio);
+        source.connect(this.analyser);
+        source.connect(this.audibleGain);
+
+        this.audioEl = audio;
+        this.mediaSource = source;
+        this.trackName = file.name;
+        audio.play();
+      }
+
+      toggleAudioPlayback() {
+        if (!this.audioEl) return false;
+        this.ensureContext();
+        if (this.audioEl.paused) {
+          this.audioEl.play();
+          return true;
+        } else {
+          this.audioEl.pause();
+          return false;
+        }
+      }
+
+      toggleSim() {
+        if (!this.simActive) {
+          this.stopMic();
+          if (this.audioEl) this.audioEl.pause();
+        }
+        this.simActive = !this.simActive;
+        return this.simActive;
+      }
+
+      pulseTts(strength = 0.85) {
+        this.ttsBoost = Math.max(this.ttsBoost, strength);
+      }
+
+      stopAll() {
+        this.stopMic();
+        this.simActive = false;
+        this.ttsBoost = 0;
+        if (this.audioEl) {
+          this.audioEl.pause();
+        }
+      }
+
+      getRecordingAudioTrack() {
+        // Si hay micrófono activo, priorizar su pista directa
+        if (this.micStream && this.micStream.getAudioTracks().length > 0) {
+          return this.micStream.getAudioTracks()[0];
+        }
+        if (this.recordDest && this.recordDest.stream.getAudioTracks().length > 0) {
+          return this.recordDest.stream.getAudioTracks()[0];
+        }
+        return null;
+      }
+
+      sample(dt = 0.016) {
+        // 1. Modo TTS Loquendo hablando
+        if (this.ttsBoost > 0.01) {
+          this.ttsBoost = Math.max(0, this.ttsBoost - dt * 4.2);
+          const wobble = 0.55 + 0.45 * Math.abs(Math.sin(performance.now() * 0.024));
+          const lvl = clamp(this.ttsBoost * wobble, 0, 1);
+          return {
+            level: lvl,
+            bass: lvl * 0.45,
+            lowMid: lvl * 0.8,
+            highMid: lvl * 0.65,
+            tilt: 0.2,
+            onset: lvl > 0.6 ? 0.5 : 0,
+          };
+        }
+
+        // 2. Modo Simulador de voz
+        if (this.simActive) {
+          this.simTimer -= dt;
+          if (this.simTimer <= 0) {
+            const isPause = Math.random() < 0.24;
+            this.simTarget = isPause ? 0.02 : 0.35 + Math.random() * 0.65;
+            this.simTimer = isPause ? 0.14 + Math.random() * 0.22 : 0.07 + Math.random() * 0.13;
+          }
+          this.simPhase = lerp(this.simPhase, this.simTarget, Math.min(1, dt * 22));
+          const syllable = this.simPhase * (0.78 + 0.22 * Math.sin(performance.now() * 0.03));
+          return {
+            level: clamp(syllable, 0, 1),
+            bass: syllable * 0.5,
+            lowMid: syllable * 0.85,
+            highMid: syllable * 0.6,
+            tilt: 0.1,
+            onset: 0,
+          };
+        }
+
+        // 3. Análisis real Web Audio API (Micrófono o MP3/WAV)
+        if (!this.analyser || (!this.micStream && (!this.audioEl || this.audioEl.paused))) {
+          return { ...SILENT_SAMPLE };
+        }
+
+        const timeData = new Uint8Array(this.analyser.fftSize);
+        this.analyser.getByteTimeDomainData(timeData);
+        let sumSq = 0;
+        for (let i = 0; i < timeData.length; i++) {
+          const v = (timeData[i] - 128) / 128;
+          sumSq += v * v;
+        }
+        const rms = Math.sqrt(sumSq / timeData.length);
+        const level = clamp(rms * 3.4, 0, 1);
+
+        const freqData = new Uint8Array(this.analyser.frequencyBinCount);
+        this.analyser.getByteFrequencyData(freqData);
+        const n = freqData.length;
+        const bassEnd = Math.max(1, Math.floor(n * 0.08));
+        const lowMidEnd = Math.max(bassEnd + 1, Math.floor(n * 0.25));
+        const highMidEnd = Math.max(lowMidEnd + 1, Math.floor(n * 0.55));
+
+        const bandAvg = (start, end) => {
+          let s = 0;
+          for (let i = start; i < end; i++) s += freqData[i] / 255;
+          return s / Math.max(1, end - start);
+        };
+
+        const bass = bandAvg(0, bassEnd);
+        const lowMid = bandAvg(bassEnd, lowMidEnd);
+        const highMid = bandAvg(lowMidEnd, highMidEnd);
+        const tilt = highMid - bass;
+        const onset = Math.max(0, level - this.prevEnergy);
+        this.prevEnergy = level;
+
+        return { level, bass, lowMid, highMid, tilt, onset };
+      }
+    }
+
+    /* ==========================================================================
+       MÓDULO 8: MOTOR DE RENDERIZADO CANVAS 2D (renderer.js — PuppetRenderer)
+       ========================================================================== */
+    function mulberry32(seed) {
+      let a = seed >>> 0;
+      return function () {
+        a |= 0;
+        a = (a + 0x6d2b79f5) | 0;
+        let t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    class PuppetRenderer {
+      constructor(canvas, audioRig, onVuUpdate) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext("2d");
+        this.audioRig = audioRig;
+        this.onVuUpdate = onVuUpdate;
+
+        this.mode = "edit"; // "edit" | "play" | "still"
+        this.sourceCanvas = null;
+        this.markers = null;
+        this.fx = { ...DEFAULT_FX };
+        this.view = { scale: 1, ox: 0, oy: 0 };
+
+        this.upperLayer = null;
+        this.jawLayer = null;
+        this.layersDirty = true;
+
+        this.rafId = null;
+        this.lastTime = 0;
+        this.elapsed = 0;
+
+        this.autoPeak = 0.25;
+        this.mouthSmooth = 0;
+        this.bassSmooth = 0;
+
+        // Pre-generar 48 estrellas deterministas (semilla 202003)
+        const rng = mulberry32(202003);
+        this.stars = Array.from({ length: 48 }, (_, i) => ({
+          nx: rng(),
+          ny: rng(),
+          size: 8 + rng() * 18,
+          speed: (rng() - 0.5) * 2.2,
+          phase: rng() * Math.PI * 2,
+          color: FLASH_PALETTE[i % FLASH_PALETTE.length],
+        }));
+      }
+
+      setPuppet(sourceCanvas, markers) {
+        this.sourceCanvas = sourceCanvas;
+        this.markers = markers;
+        this.layersDirty = true;
+        this.resize();
+      }
+
+      setMarkers(markers) {
+        this.markers = markers;
+        this.layersDirty = true;
+        if (this.mode !== "play") this.renderOnce();
+      }
+
+      setFx(fx) {
+        const widthChanged = this.fx.mouthWidth !== fx.mouthWidth;
+        this.fx = { ...fx };
+        if (widthChanged) this.layersDirty = true;
+        if (this.mode !== "play") this.renderOnce();
+      }
+
+      setMode(mode) {
+        this.mode = mode;
+        if (mode === "play") {
+          this.startLoop();
+        } else {
+          this.stopLoop();
+          this.renderOnce();
+        }
+      }
+
+      resize() {
+        const rect = this.canvas.parentElement.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = Math.max(100, Math.round(rect.width * dpr));
+        const h = Math.max(100, Math.round(rect.height * dpr));
+        if (this.canvas.width !== w || this.canvas.height !== h) {
+          this.canvas.width = w;
+          this.canvas.height = h;
+        }
+        if (this.sourceCanvas) {
+          this.view = fitView(w, h, this.sourceCanvas.width, this.sourceCanvas.height, 24 * dpr);
+        }
+        if (this.mode !== "play") this.renderOnce();
+      }
+
+      ensureLayers() {
+        if (!this.layersDirty || !this.sourceCanvas || !this.markers) return;
+        const w = this.sourceCanvas.width;
+        const h = this.sourceCanvas.height;
+        const path = cutPath(this.markers, this.fx.mouthWidth);
+
+        // Capa Superior (cabeza fija sin el bloque de mandíbula)
+        const upper = document.createElement("canvas");
+        upper.width = w;
+        upper.height = h;
+        const uCtx = upper.getContext("2d");
+        uCtx.drawImage(this.sourceCanvas, 0, 0);
+        uCtx.save();
+        uCtx.globalCompositeOperation = "destination-out";
+        uCtx.fillStyle = "#000000";
+        uCtx.fill(path);
+        uCtx.restore();
+
+        // Capa Mandíbula (solo el bloque móvil)
+        const jaw = document.createElement("canvas");
+        jaw.width = w;
+        jaw.height = h;
+        const jCtx = jaw.getContext("2d");
+        jCtx.save();
+        jCtx.clip(path);
+        jCtx.drawImage(this.sourceCanvas, 0, 0);
+        jCtx.restore();
+
+        this.upperLayer = upper;
+        this.jawLayer = jaw;
+        this.layersDirty = false;
+      }
+
+      drawChecker(ctx, w, h) {
+        const size = 18;
+        for (let y = 0; y < h; y += size) {
+          for (let x = 0; x < w; x += size) {
+            const odd = ((x / size + y / size) & 1) === 1;
+            ctx.fillStyle = odd ? "#241833" : "#1a1028";
+            ctx.fillRect(x, y, size, size);
+          }
+        }
+      }
+
+      drawBackdrop(ctx, w, h, t) {
+        ctx.fillStyle = "#140c22";
+        ctx.fillRect(0, 0, w, h);
+
+        const cx = w / 2;
+        const cy = h / 2;
+        const maxR = Math.hypot(w, h) * 0.75;
+
+        // 1. Rayos giratorios (16 sectores)
+        if (this.fx.rays) {
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(t * 0.28);
+          const sectors = 16;
+          const step = (Math.PI * 2) / sectors;
+          for (let i = 0; i < sectors; i++) {
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.arc(0, 0, maxR, i * step, (i + 1) * step);
+            ctx.closePath();
+            ctx.fillStyle = FLASH_PALETTE[i % FLASH_PALETTE.length];
+            ctx.globalAlpha = i % 2 === 0 ? 0.34 : 0.16;
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        // 2. Espiral psicodélica (4 brazos de Arquímedes)
+        if (this.fx.spiral) {
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(-t * 0.45);
+          const arms = 4;
+          for (let a = 0; a < arms; a++) {
+            ctx.beginPath();
+            ctx.strokeStyle = FLASH_PALETTE[(a + 1) % FLASH_PALETTE.length];
+            ctx.lineWidth = Math.max(8, w * 0.022);
+            ctx.globalAlpha = 0.38;
+            const baseAng = (a * Math.PI * 2) / arms;
+            for (let r = 0; r < maxR; r += 10) {
+              const theta = baseAng + r * 0.016;
+              const px = Math.cos(theta) * r;
+              const py = Math.sin(theta) * r;
+              if (r === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        // 3. Estrellas de 8 puntas deterministas
+        if (this.fx.stars) {
+          for (const st of this.stars) {
+            const sx = st.nx * w;
+            const sy = st.ny * h;
+            const pulse = 0.65 + 0.35 * Math.sin(t * 3.5 + st.phase);
+            const outerR = st.size * pulse * (1 + this.bassSmooth * 0.35);
+            const innerR = outerR * 0.38;
+
+            ctx.save();
+            ctx.translate(sx, sy);
+            ctx.rotate(t * st.speed + st.phase);
+            ctx.beginPath();
+            for (let p = 0; p < 16; p++) {
+              const r = p % 2 === 0 ? outerR : innerR;
+              const ang = (p * Math.PI) / 8;
+              const px = Math.cos(ang) * r;
+              const py = Math.sin(ang) * r;
+              if (p === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.fillStyle = st.color;
+            ctx.globalAlpha = 0.85;
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+      }
+
+      drawPuppetWithMouth(ctx, openAmount) {
+        this.ensureLayers();
+        const path = cutPath(this.markers, this.fx.mouthWidth);
+        const angle = mouthAngle(this.markers);
+        const openPx = mouthOpenPx(this.markers, openAmount, this.fx.mouthMax, this.fx.mouthWidth);
+
+        // 1. Hueco interior de la boca (negro sólido clásico)
+        ctx.save();
+        ctx.fillStyle = "#000000";
+        ctx.fill(path);
+        ctx.restore();
+
+        // 2. Cabeza superior fija
+        ctx.drawImage(this.upperLayer, 0, 0);
+
+        // 3. Mandíbula desplazada perpendicularmente al ángulo de la boca
+        ctx.save();
+        ctx.translate(-Math.sin(angle) * openPx, Math.cos(angle) * openPx);
+        ctx.drawImage(this.jawLayer, 0, 0);
+        ctx.restore();
+      }
+
+      renderOnce(dt = 0.016) {
+        if (!this.sourceCanvas || !this.markers) return;
+        const ctx = this.ctx;
+        const w = this.canvas.width;
+        const h = this.canvas.height;
+        const imgW = this.sourceCanvas.width;
+        const imgH = this.sourceCanvas.height;
+
+        ctx.clearRect(0, 0, w, h);
+
+        // MODO EDICIÓN
+        if (this.mode === "edit") {
+          this.drawChecker(ctx, w, h);
+          ctx.save();
+          ctx.translate(this.view.ox, this.view.oy);
+          ctx.scale(this.view.scale, this.view.scale);
+          ctx.drawImage(this.sourceCanvas, 0, 0);
+
+          // Guías vectoriales de corte y línea de boca
+          const path = cutPath(this.markers, this.fx.mouthWidth);
+          ctx.strokeStyle = "#ffe14a";
+          ctx.lineWidth = 3 / this.view.scale;
+          ctx.stroke(path);
+
+          ctx.beginPath();
+          ctx.moveTo(this.markers.mouth[0].x, this.markers.mouth[0].y);
+          for (let i = 1; i < this.markers.mouth.length; i++) {
+            ctx.lineTo(this.markers.mouth[i].x, this.markers.mouth[i].y);
+          }
+          ctx.strokeStyle = "#ff2f7b";
+          ctx.lineWidth = 2.5 / this.view.scale;
+          ctx.stroke();
+          ctx.restore();
+
+          if (this.onVuUpdate) this.onVuUpdate(0);
+          return;
+        }
+
+        // MODO SOLO IMAGEN (STILL)
+        if (this.mode === "still") {
+          ctx.fillStyle = "#000000";
+          ctx.fillRect(0, 0, w, h);
+          const v = fitView(w, h, imgW, imgH, 24);
+          ctx.save();
+          ctx.translate(v.ox, v.oy);
+          ctx.scale(v.scale, v.scale);
+          this.drawPuppetWithMouth(ctx, 0.92);
+          ctx.restore();
+          if (this.onVuUpdate) this.onVuUpdate(0);
+          return;
+        }
+
+        // MODO ANIMACIÓN (PLAY)
+        const sample = this.audioRig.sample(dt);
+        if (this.onVuUpdate) this.onVuUpdate(sample.level);
+
+        // Normalización automática de picos
+        this.autoPeak = Math.max(0.035, this.autoPeak * Math.exp(-dt * 0.45), sample.level);
+        const normLevel = clamp((sample.level / this.autoPeak) * this.fx.sensitivity, 0, 1);
+
+        const attack = normLevel > this.mouthSmooth ? 18 : 8;
+        this.mouthSmooth = lerp(this.mouthSmooth, normLevel, Math.min(1, dt * attack));
+        this.bassSmooth = lerp(this.bassSmooth, sample.bass, Math.min(1, dt * 14));
+
+        this.drawBackdrop(ctx, w, h, this.elapsed);
+
+        const baseView = fitView(w, h, imgW, imgH, 28);
+        const faceH = Math.max(80, this.markers.jaw[3].y - this.markers.eyeL.y);
+        const pivot = this.markers.nose;
+
+        const rot = this.fx.spin ? Math.sin(this.elapsed * 1.7) * (0.035 + this.mouthSmooth * 0.1) : 0;
+        const bounceY = -this.bassSmooth * faceH * 0.045;
+        const swayX = Math.sin(this.elapsed * 1.25) * this.mouthSmooth * faceH * 0.02;
+        const bassZoom = this.fx.zoom ? 1 + this.bassSmooth * 0.16 : 1;
+
+        ctx.save();
+        ctx.translate(baseView.ox + pivot.x * baseView.scale + swayX, baseView.oy + pivot.y * baseView.scale + bounceY);
+        ctx.scale(baseView.scale * bassZoom, baseView.scale * bassZoom);
+        ctx.rotate(rot);
+        ctx.translate(-pivot.x, -pivot.y);
+
+        this.drawPuppetWithMouth(ctx, this.mouthSmooth);
+        ctx.restore();
+      }
+
+      startLoop() {
+        if (this.rafId !== null) return;
+        this.lastTime = performance.now();
+        const tick = (now) => {
+          const dt = Math.min(0.05, Math.max(0.001, (now - this.lastTime) / 1000));
+          this.lastTime = now;
+          this.elapsed += dt;
+          this.renderOnce(dt);
+          this.rafId = requestAnimationFrame(tick);
+        };
+        this.rafId = requestAnimationFrame(tick);
+      }
+
+      stopLoop() {
+        if (this.rafId !== null) {
+          cancelAnimationFrame(this.rafId);
+          this.rafId = null;
+        }
+      }
+    }
+
+    /* ==========================================================================
+       MÓDULO 9: CONTROLADOR PRINCIPAL DE LA APLICACIÓN (app.js)
+       ========================================================================== */
+    const state = {
+      sourceCanvas: null,
+      markers: null,
+      undoStack: [],
+      fx: { ...DEFAULT_FX },
+      mode: "edit",
+      recDuration: 6,
+      isRecording: false,
+      cropRect: null, // En coordenadas de imagen
+    };
+
+    // Cargar preferencias guardadas
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved && saved.fx) {
+        state.fx = { ...DEFAULT_FX, ...saved.fx };
+      }
+    } catch {}
+
+    function saveSettings() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ fx: state.fx }));
+      } catch {}
+    }
+
+    // Referencias DOM
+    const elStage = document.getElementById("stage-container");
+    const elCanvas = document.getElementById("stage-canvas");
+    const elMarkersLayer = document.getElementById("markers-layer");
+    const elStatus = document.getElementById("status-text");
+    const elLiveBadge = document.getElementById("live-badge");
+    const elRecCountdown = document.getElementById("rec-countdown");
+    const vuBars = Array.from(document.querySelectorAll(".vu-bar"));
+
+    function setStatus(msg) {
+      elStatus.textContent = msg;
+    }
+
+    function updateVuMeter(level) {
+      const lit = Math.round(level * vuBars.length);
+      vuBars.forEach((bar, idx) => {
+        if (idx < lit) {
+          if (idx >= 8) bar.style.backgroundColor = "#ff2f7b";
+          else if (idx >= 6) bar.style.backgroundColor = "#ffe14a";
+          else bar.style.backgroundColor = "#3dffe8";
+        } else {
+          bar.style.backgroundColor = "#3a3a4a";
+        }
+      });
+    }
+
+    const audioRig = new AudioRig();
+    const renderer = new PuppetRenderer(elCanvas, audioRig, updateVuMeter);
+
+    function pushUndo() {
+      if (!state.sourceCanvas || !state.markers) return;
+      const snapCanvas = document.createElement("canvas");
+      snapCanvas.width = state.sourceCanvas.width;
+      snapCanvas.height = state.sourceCanvas.height;
+      snapCanvas.getContext("2d").drawImage(state.sourceCanvas, 0, 0);
+
+      state.undoStack.push({
+        canvas: snapCanvas,
+        markers: cloneMarkers(state.markers),
+      });
+      if (state.undoStack.length > 10) state.undoStack.shift();
+      document.getElementById("btn-undo").disabled = false;
+    }
+
+    function performUndo() {
+      const prev = state.undoStack.pop();
+      if (!prev) return;
+      state.sourceCanvas = prev.canvas;
+      state.markers = prev.markers;
+      renderer.setPuppet(state.sourceCanvas, state.markers);
+      syncMarkerHandles();
+      document.getElementById("btn-undo").disabled = state.undoStack.length === 0;
+      setStatus("Última acción deshecha.");
+    }
+
+    /* --- Gestión de los 15 nodos interactivos en el DOM --- */
+    const handleElements = new Map();
+
+    function buildMarkerHandles() {
+      elMarkersLayer.innerHTML = "";
+      handleElements.clear();
+
+      for (const meta of MARKER_META) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `marker-handle tone-${meta.tone}${meta.alwaysTag ? " always-tag" : ""}`;
+        btn.setAttribute("aria-label", meta.label);
+        btn.dataset.key = meta.key;
+
+        const dot = document.createElement("span");
+        dot.className = "marker-dot";
+
+        const tag = document.createElement("span");
+        tag.className = "marker-tag";
+        tag.textContent = meta.short;
+
+        btn.appendChild(dot);
+        btn.appendChild(tag);
+
+        // Arrastre con Pointer Events (Mouse + Touch)
+        btn.addEventListener("pointerdown", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          btn.setPointerCapture(e.pointerId);
+          btn.classList.add("dragging");
+          setStatus(`Moviendo: ${meta.label}`);
+
+          const onMove = (ev) => {
+            const rect = elCanvas.getBoundingClientRect();
+            const dpr = elCanvas.width / rect.width;
+            const vx = (ev.clientX - rect.left) * dpr;
+            const vy = (ev.clientY - rect.top) * dpr;
+            const imgPt = viewToImg(
+              { x: vx, y: vy },
+              renderer.view,
+              state.sourceCanvas.width,
+              state.sourceCanvas.height
+            );
+            setMarkerPoint(state.markers, meta.key, imgPt);
+            state.markers = sanitizeMarkers(state.markers, state.sourceCanvas.width, state.sourceCanvas.height);
+            renderer.setMarkers(state.markers);
+            syncMarkerHandles();
+          };
+
+          const onUp = () => {
+            btn.classList.remove("dragging");
+            btn.removeEventListener("pointermove", onMove);
+            btn.removeEventListener("pointerup", onUp);
+            btn.removeEventListener("pointercancel", onUp);
+          };
+
+          btn.addEventListener("pointermove", onMove);
+          btn.addEventListener("pointerup", onUp);
+          btn.addEventListener("pointercancel", onUp);
+        });
+
+        // Ajuste fino con flechas del teclado
+        btn.addEventListener("keydown", (e) => {
+          const step = e.shiftKey ? 10 : 2;
+          let dx = 0, dy = 0;
+          if (e.key === "ArrowLeft") dx = -step;
+          else if (e.key === "ArrowRight") dx = step;
+          else if (e.key === "ArrowUp") dy = -step;
+          else if (e.key === "ArrowDown") dy = step;
+          else return;
+
+          e.preventDefault();
+          const cur = getMarkerPoint(state.markers, meta.key);
+          setMarkerPoint(state.markers, meta.key, { x: cur.x + dx, y: cur.y + dy });
+          state.markers = sanitizeMarkers(state.markers, state.sourceCanvas.width, state.sourceCanvas.height);
+          renderer.setMarkers(state.markers);
+          syncMarkerHandles();
+        });
+
+        elMarkersLayer.appendChild(btn);
+        handleElements.set(meta.key, btn);
+      }
+    }
+
+    function syncMarkerHandles() {
+      if (!state.markers || !state.sourceCanvas) return;
+      const visible = state.mode === "edit" && !state.cropRect;
+      elMarkersLayer.style.display = visible ? "block" : "none";
+      if (!visible) return;
+
+      const rect = elCanvas.getBoundingClientRect();
+      const dpr = elCanvas.width / Math.max(1, rect.width);
+
+      for (const meta of MARKER_META) {
+        const pt = getMarkerPoint(state.markers, meta.key);
+        const vp = imgToView(pt, renderer.view);
+        const btn = handleElements.get(meta.key);
+        if (btn) {
+          btn.style.left = `${vp.x / dpr}px`;
+          btn.style.top = `${vp.y / dpr}px`;
+        }
+      }
+    }
+
+    /* --- Cambio de Modo del Escenario --- */
+    function switchMode(nextMode) {
+      state.mode = nextMode;
+      document.getElementById("mode-edit-btn").classList.toggle("mm-btn-on", nextMode === "edit");
+      document.getElementById("mode-play-btn").classList.toggle("mm-btn-on", nextMode === "play");
+      document.getElementById("mode-still-btn").classList.toggle("mm-btn-on", nextMode === "still");
+
+      elLiveBadge.classList.toggle("hidden", nextMode !== "play");
+
+      if (nextMode === "still") {
+        audioRig.stopAll();
+        window.speechSynthesis?.cancel();
+        document.getElementById("btn-mic").classList.remove("mm-btn-on");
+        document.getElementById("btn-sim").classList.remove("mm-btn-on");
+        setStatus("Modo Solo imagen: boca abierta fija lista para exportar PNG.");
+      } else if (nextMode === "play") {
+        audioRig.ensureContext();
+        setStatus("¡Al aire! Habla por el micrófono, sube un MP3 o usa Loquendo TTS.");
+      } else {
+        setStatus("Modo Edición: arrastra los puntos sobre ojos, nariz, boca y mandíbula.");
+      }
+
+      renderer.setMode(nextMode);
+      syncMarkerHandles();
+    }
+
+    document.getElementById("mode-edit-btn").addEventListener("click", () => switchMode("edit"));
+    document.getElementById("mode-play-btn").addEventListener("click", () => switchMode("play"));
+    document.getElementById("mode-still-btn").addEventListener("click", () => switchMode("still"));
+
+    /* --- Encuadre y Deshacer --- */
+    document.getElementById("btn-center-head").addEventListener("click", () => {
+      if (!state.sourceCanvas || !state.markers) return;
+      renderer.view = faceView(
+        elCanvas.width,
+        elCanvas.height,
+        state.sourceCanvas.width,
+        state.sourceCanvas.height,
+        state.markers
+      );
+      if (state.mode !== "play") renderer.renderOnce();
+      syncMarkerHandles();
+    });
+
+    document.getElementById("btn-fit-view").addEventListener("click", () => {
+      if (!state.sourceCanvas) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      renderer.view = fitView(
+        elCanvas.width,
+        elCanvas.height,
+        state.sourceCanvas.width,
+        state.sourceCanvas.height,
+        24 * dpr
+      );
+      if (state.mode !== "play") renderer.renderOnce();
+      syncMarkerHandles();
+    });
+
+    document.getElementById("btn-undo").addEventListener("click", performUndo);
+
+    /* --- Carga de Imágenes, Bean y Drag & Drop --- */
+    async function handleNewImageFile(file) {
+      if (!file || !file.type.startsWith("image/")) {
+        setStatus("Por favor selecciona un archivo de imagen válido (JPG, PNG, WebP).");
+        return;
+      }
+      try {
+        setStatus("Cargando imagen...");
+        pushUndo();
+        const canvas = await loadImageFile(file);
+        state.sourceCanvas = canvas;
+        state.markers = defaultMarkersForSize(canvas.width, canvas.height);
+        renderer.setPuppet(state.sourceCanvas, state.markers);
+        switchMode("edit");
+        setStatus("Imagen cargada. Prueba 'Auto-detectar' o ajusta los puntos.");
+      } catch (err) {
+        setStatus("Error al cargar imagen: " + err.message);
+      }
+    }
+
+    document.getElementById("btn-upload-img").addEventListener("click", () => {
+      document.getElementById("input-image").click();
+    });
+
+    document.getElementById("input-image").addEventListener("change", (e) => {
+      if (e.target.files[0]) handleNewImageFile(e.target.files[0]);
+      e.target.value = "";
+    });
+
+    document.getElementById("btn-load-bean").addEventListener("click", () => {
+      pushUndo();
+      const bean = createSampleBeanPuppet();
+      state.sourceCanvas = bean.canvas;
+      state.markers = bean.markers;
+      renderer.setPuppet(state.sourceCanvas, state.markers);
+      syncMarkerHandles();
+      setStatus("Personaje de muestra 'Bean' cargado.");
+    });
+
+    // Drag & Drop en escenario
+    elStage.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      elStage.classList.add("drag-over");
+    });
+    elStage.addEventListener("dragleave", () => elStage.classList.remove("drag-over"));
+    elStage.addEventListener("drop", (e) => {
+      e.preventDefault();
+      elStage.classList.remove("drag-over");
+      const file = e.dataTransfer?.files?.[0];
+      if (file) {
+        if (file.type.startsWith("audio/")) {
+          audioRig.loadFile(file);
+          updateAudioTrackButton();
+          switchMode("play");
+        } else if (file.name.endsWith(".json")) {
+          loadProjectFile(file);
+        } else {
+          handleNewImageFile(file);
+        }
+      }
+    });
+
+    /* --- Detección Facial IA --- */
+    document.getElementById("btn-auto-face").addEventListener("click", async () => {
+      if (!state.sourceCanvas) return;
+      const btn = document.getElementById("btn-auto-face");
+      btn.disabled = true;
+      try {
+        pushUndo();
+        const detected = await detectFaceMarkers(state.sourceCanvas, setStatus);
+        state.markers = detected;
+        renderer.setMarkers(state.markers);
+        switchMode("edit");
+        setStatus("¡Rostro detectado! Revisa la posición de boca y barbilla.");
+      } catch (err) {
+        setStatus(err.message || "No se pudo detectar el rostro.");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    /* --- Quitafondos IA --- */
+    document.getElementById("btn-remove-bg").addEventListener("click", async () => {
+      if (!state.sourceCanvas) return;
+      const btn = document.getElementById("btn-remove-bg");
+      btn.disabled = true;
+      try {
+        pushUndo();
+        const cleanCanvas = await removeBackgroundAI(state.sourceCanvas, setStatus);
+        state.sourceCanvas = cleanCanvas;
+        renderer.setPuppet(state.sourceCanvas, state.markers);
+        syncMarkerHandles();
+        setStatus("¡Fondo eliminado con IA!");
+      } catch (err) {
+        setStatus("Error en Quitafondos IA: " + err.message);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    /* --- Recorte Sobrante (Trim Transparency) --- */
+    document.getElementById("btn-trim-alpha").addEventListener("click", () => {
+      if (!state.sourceCanvas || !state.markers) return;
+      pushUndo();
+      const res = trimTransparency(state.sourceCanvas, state.markers, 10);
+      if (!res) {
+        state.undoStack.pop();
+        setStatus("No hay bordes transparentes sobrantes que recortar.");
+        return;
+      }
+      state.sourceCanvas = res.canvas;
+      state.markers = res.markers;
+      renderer.setPuppet(state.sourceCanvas, state.markers);
+      syncMarkerHandles();
+      setStatus("Bordes transparentes recortados.");
+    });
+
+    /* --- Parchear boca abierta original --- */
+    document.getElementById("btn-patch-mouth").addEventListener("click", () => {
+      if (!state.sourceCanvas || !state.markers) return;
+      pushUndo();
+      state.sourceCanvas = patchOpenMouth(state.sourceCanvas, state.markers);
+      renderer.setPuppet(state.sourceCanvas, state.markers);
+      setStatus("Interior de boca original suavizado/parcheado.");
+    });
+
+    /* --- Recorte Manual Interactivo (Crop) --- */
+    const elCropOverlay = document.getElementById("crop-overlay");
+    const elCropBox = document.getElementById("crop-box");
+    const elCropActions = document.getElementById("crop-actions");
+
+    function syncCropBoxDOM() {
+      if (!state.cropRect) return;
+      const rect = elCanvas.getBoundingClientRect();
+      const dpr = elCanvas.width / Math.max(1, rect.width);
+      const tl = imgToView({ x: state.cropRect.x, y: state.cropRect.y }, renderer.view);
+      const br = imgToView(
+        { x: state.cropRect.x + state.cropRect.w, y: state.cropRect.y + state.cropRect.h },
+        renderer.view
+      );
+      elCropBox.style.left = `${tl.x / dpr}px`;
+      elCropBox.style.top = `${tl.y / dpr}px`;
+      elCropBox.style.width = `${Math.max(20, (br.x - tl.x) / dpr)}px`;
+      elCropBox.style.height = `${Math.max(20, (br.y - tl.y) / dpr)}px`;
+    }
+
+    document.getElementById("btn-start-crop").addEventListener("click", () => {
+      if (!state.sourceCanvas) return;
+      switchMode("edit");
+      const w = state.sourceCanvas.width;
+      const h = state.sourceCanvas.height;
+      state.cropRect = {
+        x: Math.round(w * 0.1),
+        y: Math.round(h * 0.08),
+        w: Math.round(w * 0.8),
+        h: Math.round(h * 0.84),
+      };
+      elCropOverlay.classList.add("active");
+      elCropActions.classList.remove("hidden");
+      syncMarkerHandles();
+      syncCropBoxDOM();
+      setStatus("Arrastra las esquinas del recuadro amarillo y pulsa 'Aplicar recorte'.");
+    });
+
+    function endCropUI() {
+      state.cropRect = null;
+      elCropOverlay.classList.remove("active");
+      elCropActions.classList.add("hidden");
+      syncMarkerHandles();
+    }
+
+    document.getElementById("btn-cancel-crop").addEventListener("click", () => {
+      endCropUI();
+      setStatus("Recorte cancelado.");
+    });
+
+    document.getElementById("btn-apply-crop").addEventListener("click", () => {
+      if (!state.cropRect || !state.sourceCanvas) return;
+      pushUndo();
+      const cropped = cropCanvasAndMarkers(state.sourceCanvas, state.markers, state.cropRect);
+      state.sourceCanvas = cropped.canvas;
+      state.markers = cropped.markers;
+      endCropUI();
+      renderer.setPuppet(state.sourceCanvas, state.markers);
+      syncMarkerHandles();
+      setStatus("Recorte aplicado correctamente.");
+    });
+
+    elCropBox.addEventListener("pointerdown", (e) => {
+      if (!state.cropRect) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const handle = e.target.dataset.handle || "move";
+      elCropBox.setPointerCapture(e.pointerId);
+
+      const startClientX = e.clientX;
+      const startClientY = e.clientY;
+      const orig = { ...state.cropRect };
+      const imgW = state.sourceCanvas.width;
+      const imgH = state.sourceCanvas.height;
+      const rect = elCanvas.getBoundingClientRect();
+      const dpr = elCanvas.width / Math.max(1, rect.width);
+
+      const onMove = (ev) => {
+        const dx = ((ev.clientX - startClientX) * dpr) / renderer.view.scale;
+        const dy = ((ev.clientY - startClientY) * dpr) / renderer.view.scale;
+
+        if (handle === "move") {
+          state.cropRect.x = clamp(orig.x + dx, 0, imgW - orig.w);
+          state.cropRect.y = clamp(orig.y + dy, 0, imgH - orig.h);
+        } else {
+          let x1 = orig.x;
+          let y1 = orig.y;
+          let x2 = orig.x + orig.w;
+          let y2 = orig.y + orig.h;
+
+          if (handle.includes("w")) x1 = clamp(orig.x + dx, 0, x2 - 40);
+          if (handle.includes("e")) x2 = clamp(orig.x + orig.w + dx, x1 + 40, imgW);
+          if (handle.includes("n")) y1 = clamp(orig.y + dy, 0, y2 - 40);
+          if (handle.includes("s")) y2 = clamp(orig.y + orig.h + dy, y1 + 40, imgH);
+
+          state.cropRect = { x: x1, y: y1, w: x2 - x1, h: y2 - y1 };
+        }
+        syncCropBoxDOM();
+      };
+
+      const onUp = () => {
+        elCropBox.removeEventListener("pointermove", onMove);
+        elCropBox.removeEventListener("pointerup", onUp);
+      };
+
+      elCropBox.addEventListener("pointermove", onMove);
+      elCropBox.addEventListener("pointerup", onUp);
+    });
+
+    /* --- Controles de Audio, Micrófono y Simulador --- */
+    const btnMic = document.getElementById("btn-mic");
+    const btnSim = document.getElementById("btn-sim");
+    const btnToggleAudio = document.getElementById("btn-toggle-audio");
+
+    function updateAudioTrackButton() {
+      if (audioRig.audioEl) {
+        btnToggleAudio.classList.remove("hidden");
+        const shortName = audioRig.trackName.length > 22
+          ? audioRig.trackName.slice(0, 19) + "..."
+          : audioRig.trackName;
+        btnToggleAudio.textContent = `⏯ ${shortName}`;
+      }
+    }
+
+    btnMic.addEventListener("click", async () => {
+      if (audioRig.micStream) {
+        audioRig.stopMic();
+        btnMic.classList.remove("mm-btn-on");
+        setStatus("Micrófono detenido.");
+        return;
+      }
+      try {
+        await audioRig.startMic();
+        btnMic.classList.add("mm-btn-on");
+        btnSim.classList.remove("mm-btn-on");
+        switchMode("play");
+        setStatus("🎙️ Micrófono activo: habla para mover la mandíbula.");
+      } catch (err) {
+        setStatus(err.message);
+      }
+    });
+
+    btnSim.addEventListener("click", () => {
+      const active = audioRig.toggleSim();
+      btnSim.classList.toggle("mm-btn-on", active);
+      btnMic.classList.remove("mm-btn-on");
+      if (active) {
+        switchMode("play");
+        setStatus("Simulador de voz activo.");
+      } else {
+        setStatus("Simulador detenido.");
+      }
+    });
+
+    document.getElementById("btn-upload-audio").addEventListener("click", () => {
+      document.getElementById("input-audio").click();
+    });
+
+    document.getElementById("input-audio").addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      if (file) {
+        audioRig.loadFile(file);
+        btnMic.classList.remove("mm-btn-on");
+        btnSim.classList.remove("mm-btn-on");
+        updateAudioTrackButton();
+        switchMode("play");
+        setStatus(`Reproduciendo: ${file.name}`);
+      }
+      e.target.value = "";
+    });
+
+    btnToggleAudio.addEventListener("click", () => {
+      const playing = audioRig.toggleAudioPlayback();
+      setStatus(playing ? "Pista reanudada." : "Pista en pausa.");
+    });
+
+    document.getElementById("slider-volume").addEventListener("input", (e) => {
+      const v = Number(e.target.value);
+      audioRig.setVolume(v);
+      document.getElementById("val-volume").textContent = `${Math.round(v * 100)}%`;
+    });
+
+    /* --- Síntesis de Voz TTS Estilo Loquendo 2003 --- */
+    const elTtsVoice = document.getElementById("tts-voice");
+    const elTtsPitch = document.getElementById("tts-pitch");
+    const elTtsRate = document.getElementById("tts-rate");
+    let availableVoices = [];
+
+    function populateVoices() {
+      if (!("speechSynthesis" in window)) return;
+      availableVoices = window.speechSynthesis.getVoices();
+      elTtsVoice.innerHTML = "";
+      if (availableVoices.length === 0) {
+        const opt = document.createElement("option");
+        opt.textContent = "Voz predeterminada del sistema";
+        elTtsVoice.appendChild(opt);
+        return;
+      }
+      availableVoices.forEach((v, idx) => {
+        const opt = document.createElement("option");
+        opt.value = String(idx);
+        opt.textContent = `${v.name} (${v.lang})`;
+        if (v.lang.toLowerCase().startsWith("es") && !elTtsVoice.dataset.initialized) {
+          opt.selected = true;
+          elTtsVoice.dataset.initialized = "1";
+        }
+        elTtsVoice.appendChild(opt);
+      });
+    }
+
+    populateVoices();
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.onvoiceschanged = populateVoices;
+    }
+
+    document.querySelectorAll(".tts-preset").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const preset = TTS_PRESETS[btn.dataset.preset];
+        if (!preset) return;
+        elTtsPitch.value = preset.pitch;
+        elTtsRate.value = preset.rate;
+        document.getElementById("val-pitch").textContent = preset.pitch.toFixed(2);
+        document.getElementById("val-rate").textContent = preset.rate.toFixed(2);
+
+        // Buscar voz coincidente
+        if (availableVoices.length > 0) {
+          const matchIdx = availableVoices.findIndex((v) =>
+            preset.preferNames.some((kw) => v.name.toLowerCase().includes(kw))
+          );
+          if (matchIdx >= 0) elTtsVoice.value = String(matchIdx);
+        }
+        setStatus(`Preset Loquendo cargado: ${btn.textContent.trim()}`);
+      });
+    });
+
+    elTtsPitch.addEventListener("input", () => {
+      document.getElementById("val-pitch").textContent = Number(elTtsPitch.value).toFixed(2);
+    });
+    elTtsRate.addEventListener("input", () => {
+      document.getElementById("val-rate").textContent = Number(elTtsRate.value).toFixed(2);
+    });
+
+    document.getElementById("btn-tts-speak").addEventListener("click", () => {
+      if (!("speechSynthesis" in window)) {
+        setStatus("Tu navegador no soporta síntesis de voz Web Speech.");
+        return;
+      }
+      const text = document.getElementById("tts-text").value.trim();
+      if (!text) return;
+
+      window.speechSynthesis.cancel();
+      switchMode("play");
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.pitch = Number(elTtsPitch.value);
+      utter.rate = Number(elTtsRate.value);
+      const voiceIdx = Number(elTtsVoice.value);
+      if (availableVoices[voiceIdx]) {
+        utter.voice = availableVoices[voiceIdx];
+      }
+
+      utter.onboundary = () => audioRig.pulseTts(0.95);
+      utter.onstart = () => {
+        audioRig.pulseTts(0.9);
+        setStatus("🗣️ Hablando texto Loquendo...");
+      };
+      utter.onend = () => {
+        audioRig.ttsBoost = 0;
+        setStatus("Locución finalizada.");
+      };
+      utter.onerror = () => {
+        audioRig.ttsBoost = 0;
+      };
+
+      window.speechSynthesis.speak(utter);
+    });
+
+    document.getElementById("btn-tts-stop").addEventListener("click", () => {
+      window.speechSynthesis?.cancel();
+      audioRig.ttsBoost = 0;
+      setStatus("Voz detenida.");
+    });
+
+    /* --- Ajustes de Boca y Efectos Flash 2003 --- */
+    function syncFxControlsUI() {
+      document.getElementById("slider-sensitivity").value = state.fx.sensitivity;
+      document.getElementById("val-sensitivity").textContent = `${state.fx.sensitivity.toFixed(2)}x`;
+      document.getElementById("val-mouth-max").textContent = `${Math.round(state.fx.mouthMax * 100)}%`;
+      document.getElementById("val-mouth-width").textContent = `${Math.round(state.fx.mouthWidth * 100)}%`;
+
+      document.getElementById("fx-rays").checked = state.fx.rays;
+      document.getElementById("fx-spiral").checked = state.fx.spiral;
+      document.getElementById("fx-stars").checked = state.fx.stars;
+      document.getElementById("fx-zoom").checked = state.fx.zoom;
+      document.getElementById("fx-spin").checked = state.fx.spin;
+
+      renderer.setFx(state.fx);
+      saveSettings();
+    }
+
+    document.getElementById("slider-sensitivity").addEventListener("input", (e) => {
+      state.fx.sensitivity = Number(e.target.value);
+      syncFxControlsUI();
+    });
+
+    document.getElementById("btn-mouth-less").addEventListener("click", () => {
+      state.fx.mouthMax = clamp(Number((state.fx.mouthMax - 0.1).toFixed(2)), 0.4, 2.2);
+      syncFxControlsUI();
+    });
+
+    document.getElementById("btn-mouth-more").addEventListener("click", () => {
+      state.fx.mouthMax = clamp(Number((state.fx.mouthMax + 0.1).toFixed(2)), 0.4, 2.2);
+      syncFxControlsUI();
+    });
+
+    document.getElementById("btn-width-less").addEventListener("click", () => {
+      state.fx.mouthWidth = clamp(Number((state.fx.mouthWidth - 0.05).toFixed(2)), 0.45, 1.8);
+      syncFxControlsUI();
+    });
+
+    document.getElementById("btn-width-more").addEventListener("click", () => {
+      state.fx.mouthWidth = clamp(Number((state.fx.mouthWidth + 0.05).toFixed(2)), 0.45, 1.8);
+      syncFxControlsUI();
+    });
+
+    for (const key of ["rays", "spiral", "stars", "zoom", "spin"]) {
+      document.getElementById(`fx-${key}`).addEventListener("change", (e) => {
+        state.fx[key] = e.target.checked;
+        syncFxControlsUI();
+      });
+    }
+
+    /* --- Guardar / Abrir Proyecto (.puppet.json) --- */
+    document.getElementById("btn-save-project").addEventListener("click", () => {
+      if (!state.sourceCanvas || !state.markers) return;
+      const payload = {
+        kind: "animutation-puppet",
+        version: 1,
+        caption: "Animutation Puppet Maker",
+        fx: state.fx,
+        mouthMax: state.fx.mouthMax,
+        volume: audioRig.volume,
+        markers: state.markers,
+        image: state.sourceCanvas.toDataURL("image/png"),
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "mi-titere.puppet.json";
+      a.click();
+      URL.revokeObjectURL(url);
+      setStatus("Proyecto descargado como mi-titere.puppet.json.");
+    });
+
+    async function loadProjectFile(file) {
+      try {
+        const text = await file.text();
+        const data = JSON.parse(text);
+        if (data.kind !== "animutation-puppet" || !data.image || !data.markers) {
+          throw new Error("Archivo .puppet.json inválido.");
+        }
+        pushUndo();
+        const canvas = await loadImageFromDataUrl(data.image);
+        state.sourceCanvas = canvas;
+        state.markers = sanitizeMarkers(data.markers, canvas.width, canvas.height);
+        if (data.fx) state.fx = { ...DEFAULT_FX, ...data.fx };
+        if (typeof data.volume === "number") {
+          audioRig.setVolume(data.volume);
+          document.getElementById("slider-volume").value = data.volume;
+          document.getElementById("val-volume").textContent = `${Math.round(data.volume * 100)}%`;
+        }
+        renderer.setPuppet(state.sourceCanvas, state.markers);
+        syncFxControlsUI();
+        switchMode("edit");
+        setStatus("Proyecto cargado correctamente.");
+      } catch (err) {
+        setStatus("Error al abrir proyecto: " + err.message);
+      }
+    }
+
+    document.getElementById("btn-load-project").addEventListener("click", () => {
+      document.getElementById("input-project").click();
+    });
+
+    document.getElementById("input-project").addEventListener("change", (e) => {
+      if (e.target.files?.[0]) loadProjectFile(e.target.files[0]);
+      e.target.value = "";
+    });
+
+    /* --- Exportación PNG y Grabación de Video MP4/WEBM --- */
+    document.getElementById("slider-rec-duration").addEventListener("input", (e) => {
+      state.recDuration = Number(e.target.value);
+      document.getElementById("val-rec-duration").textContent = `${state.recDuration}s`;
+    });
+
+    document.getElementById("btn-export-png").addEventListener("click", () => {
+      if (state.mode === "edit") {
+        switchMode("still");
+      }
+      renderer.renderOnce();
+      const a = document.createElement("a");
+      a.href = elCanvas.toDataURL("image/png");
+      a.download = "animutation-boca.png";
+      a.click();
+      setStatus("PNG exportado: animutation-boca.png");
+    });
+
+    document.getElementById("btn-export-video").addEventListener("click", () => {
+      if (state.isRecording) return;
+      if (!("MediaRecorder" in window) || !elCanvas.captureStream) {
+        setStatus("Tu navegador no soporta MediaRecorder para exportar video.");
+        return;
+      }
+
+      if (state.mode !== "play") switchMode("play");
+
+      const stream = elCanvas.captureStream(30);
+      const audioTrack = audioRig.getRecordingAudioTrack();
+      if (audioTrack) {
+        stream.addTrack(audioTrack);
+      }
+
+      const mimeCandidates = [
+        "video/mp4;codecs=avc1,mp4a.40.2",
+        "video/mp4",
+        "video/webm;codecs=vp9,opus",
+        "video/webm",
+      ];
+      const mimeType = mimeCandidates.find((m) => MediaRecorder.isTypeSupported(m)) || "";
+      const ext = mimeType.includes("mp4") ? "mp4" : "webm";
+
+      const chunks = [];
+      const recorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+
+      recorder.ondataavailable = (ev) => {
+        if (ev.data && ev.data.size > 0) chunks.push(ev.data);
+      };
+
+      recorder.onstop = () => {
+        state.isRecording = false;
+        elRecCountdown.classList.add("hidden");
+        document.getElementById("btn-export-video").disabled = false;
+
+        const blob = new Blob(chunks, { type: mimeType || `video/${ext}` });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `animutation-2003.${ext}`;
+        a.click();
+        URL.revokeObjectURL(url);
+        setStatus(`¡Video exportado (${ext.toUpperCase()})!`);
+      };
+
+      state.isRecording = true;
+      document.getElementById("btn-export-video").disabled = true;
+      let remaining = state.recDuration;
+      elRecCountdown.textContent = `⏺ Grabando: faltan ${remaining}s`;
+      elRecCountdown.classList.remove("hidden");
+      setStatus(`Grabando video de ${state.recDuration} segundos...`);
+
+      recorder.start(250);
+
+      const timer = setInterval(() => {
+        remaining -= 1;
+        if (remaining > 0) {
+          elRecCountdown.textContent = `⏺ Grabando: faltan ${remaining}s`;
+        } else {
+          clearInterval(timer);
+          if (recorder.state !== "inactive") recorder.stop();
+        }
+      }, 1000);
+    });
+
+    /* --- Inicialización de la Aplicación --- */
+    window.addEventListener("resize", () => {
+      renderer.resize();
+      syncMarkerHandles();
+      syncCropBoxDOM();
+    });
+
+    window.addEventListener("load", () => {
+      const initial = createSampleBeanPuppet();
+      state.sourceCanvas = initial.canvas;
+      state.markers = initial.markers;
+      buildMarkerHandles();
+      renderer.setPuppet(state.sourceCanvas, state.markers);
+      syncFxControlsUI();
+      syncMarkerHandles();
+    });
+  </script>
+</body>
+</html>
